@@ -23,6 +23,7 @@ Things you may want to cover:
 
 * ...
 
+
 ## tbl_userテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -180,6 +181,7 @@ Things you may want to cover:
 - belongs_to :tbl_buyer
 
 
+---------------------------------------
 ## mst_major_categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
