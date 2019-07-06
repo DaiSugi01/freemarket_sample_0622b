@@ -1,0 +1,116 @@
+// トップページの商品一覧部分
+.pickup-container {
+  background-color: #F5F5F5;
+  height: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+  width: 100%;
+
+  &__head {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  &__items {
+    @include clearfix();
+    width: 940px;
+    height: 440px;
+    margin: 0 auto;
+    padding-left: 37px; 
+
+    &__text {
+      color: #0099E8;
+      font-size: 22px;
+      font-weight: bold;
+      margin: 18px 0;
+      padding-right: 40px;
+      text-align: center;
+
+      a {
+        color: #0099E8;
+      }
+    }
+
+    &__box {
+      height: 330px;
+      margin: 0 auto;
+      width: 940px;
+
+      &__content {
+        float: left;
+        height: 330px;
+        margin-right: 20px;
+        width: 213px;
+
+        &__photo {
+          margin: 0;
+          height: 220px;
+          width: 213px;
+
+          &__image {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        &__body {
+          background-color: #FFFFFF;
+          height: 78px;
+          padding: 16px;
+
+          &__item-name {
+            color: #333;
+            font-size: 16px;
+            font-weight: 400;
+            height: 48px;
+            line-height: 16px;
+            overflow: hidden;
+            width: 181px;
+          }
+
+          &__item-box {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+
+            &__price {
+              color: #333;
+              font-size: 17px;
+              font-weight: 600;
+              height: 17px;
+              width: 181px;  
+            }
+
+            &__likes {
+              display: flex;
+              height: 16px;
+              justify-content: flex-end;
+              width: 26px;
+
+              i {
+                color: #CCCCCC;
+              }
+
+              span {
+                color: #333;
+                padding-left: 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__view-all {
+      margin: 22px 0;
+      padding-right: 23px;
+      text-align: right;
+      font-size: 14px;
+
+      a{
+        color: #0099e8;
+      }
+    }
+  }
+}
