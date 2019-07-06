@@ -1,0 +1,110 @@
+// フッター
+.footer {
+  background-color: #212121;
+  height: 391px;
+  width: 100%;
+
+  &__nav {
+    @include clearfix();
+    height: 298px;
+    margin: 0 auto;
+    width: 1020px;
+
+    &__cell {
+      float: left;
+      height: 241px;
+      margin-top: 19px;
+      width: 204px;
+
+      // プライバシーと利用規約
+      &--rules {
+        margin-left: 30px;
+        width: 428px;
+      }
+      
+      // 国
+      &--lang {
+        height: 88px;
+        width: 97px;
+      }
+
+        &__head {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
+      }
+
+      // 以下、「プライバシーと利用規約」の内部コンテント
+      &__inner--left {
+        float: left;
+        height: 148px;
+        padding-right: 10px;
+        width: 184px;
+      }
+
+      &__inner--right {
+        float: left;
+        height: 180px;
+        padding-left: 10px;
+        width: 184px;
+      }
+
+
+      &__lists {
+
+        &__list {
+          margin-top: 14px;
+
+          &__link {
+            color: #FFFFFF;
+            font-size: 12px;
+            opacity: 0.7;
+            text-decoration: none;
+          }
+
+          &__box {
+            display: flex;
+            margin-top: 30px;
+
+            &--twitter {
+
+              &__link {
+                color: #FFFFFF;
+              }
+            }
+
+            &--facebook {
+
+              &__link {
+                color: #FFFFFF;
+                margin-left: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    margin: 32px auto 20px;
+    width: 1020px;
+
+    &__mercari {
+
+      &__image {
+        height: 33px;
+        width: 124px;  
+      }
+    }
+
+    span {
+      color: #fff;
+      font-size: 13px;
+      position: relative;
+      bottom: 11px;
+      left: 344px;
+      width: 745px;
+    }
+  }
+}
