@@ -1,0 +1,15 @@
+// 文字色とフォントサイズを設定
+@mixin header-navs() {
+  color: #333333;
+  font-size: 14px;
+}
+
+// ユーザー新規登録・ログインボタン共通
+@mixin button() {
+  border-radius: 4px;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  bottom: 5px;
+  text-align: center;
+}
