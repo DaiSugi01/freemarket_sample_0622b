@@ -1,0 +1,150 @@
+// トップページ上部のスライドショー部分
+.slider {
+  width: 100%;
+  margin-top: 1px;
+  height: 390px;
+
+  //以下、bxslider
+  .bx-wrapper {
+    margin: 0 auto;
+    border: none;
+
+    //丸い点
+    .bx-default-pager {
+      bottom: 0;
+      margin-bottom: 15px;
+      position: absolute;
+    }
+
+    //アクティブ時の丸い点の色を変更
+    .bx-pager.bx-default-pager a:hover,
+    .bx-pager.bx-default-pager a.active {
+      background: #757472;
+    }
+
+    //デフォルトの丸い点の設定
+    .bx-pager.bx-default-pager a {
+      background-color: #F4F3F2;
+      border-radius: 6px;
+      height: 12px;
+      width: 12px;
+    }
+
+    .bx-controls-direction .bx-prev {
+      background: url(carousel-prev.png);
+      height: 46px; 
+      margin-left: 50px;
+      width: 31px;
+    }
+
+    .bx-controls-direction .bx-next {
+      background: url(carousel-next.png);
+      height: 46px; 
+      margin-right: 50px;
+      width: 31px;
+    }
+  }
+
+  &__bx{
+
+    &__box  {
+      width: 100%;
+
+      // 以下、メイン画像
+      &--image1 {
+        background-color: #EAE9E5;
+        height: 390px;
+        
+        &__contents {
+          width: 760px;
+          margin: 0 auto;
+
+          &__image {
+            height: 390px;
+          }
+        }
+      }
+
+      // 以下、画像２（スライド後）
+      &--image2 {
+        background: url(main_bg_pc.jpg);
+        height: 390px;
+        width: 860px;
+
+        &__contents {
+          @include clearfix();
+          height: 390px;
+          margin: 0 auto;
+          width: 860px;
+
+          &__left {
+            float: left;
+
+            &__text {
+              // テキスト
+              color: #333333;
+
+              h2 {
+                font-size: 60px;
+                font-weight: bold;
+                height: 144px;
+                line-height: 1.2;
+                padding-top: 48px;
+                width: 480px;
+              }
+
+              p {
+                font-size: 18px;
+                height: 64px;
+                line-height: 1.77778;
+                margin-top: 15px;
+                width: 480px;
+              }
+            }
+
+            &__banner {
+              // Google play、Apple storeへのリンク
+              display: flex;
+              height: 50px;
+              margin-top: 23px;
+              width: 480px;
+
+              &__left {
+
+                &__apple {
+                  height: 50px;
+                  padding-right: 11px;
+                  width: 170px;
+                }
+              }
+
+              &__right {
+
+                &__google {
+                  height: 50px;
+                  width: 170px;
+                }
+              }
+
+            }
+          }
+
+          // スライド内の右側の画像
+          &__right {
+            float: right;
+            height: 390px;
+            width: 440px;
+
+            &__image {
+              height: 390px;
+              position: absolute;
+              top: 0;
+              left: 440;
+              width: auto;  
+            }
+          }
+        }
+      }
+    }
+  }
+}

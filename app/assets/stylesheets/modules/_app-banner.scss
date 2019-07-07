@@ -1,0 +1,87 @@
+// ページ下部のappバナー
+.app-banner {
+  background: url(app-banner.jpg);
+  height: 260px;
+  width: 100%;
+
+  &__contents {
+    @include clearfix();
+    margin: 0 auto;
+    width: 750px;
+    height: 100%;
+
+    &__left {
+      float: left;
+      height: 166px;
+      padding-top: 47px;
+      width: 420px;
+
+      &__text {
+        // テキスト
+        color: #fff;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+
+        h2 {
+          font-size: 24px;
+          height: 33px;
+          font-weight: bold;
+        }
+
+        p {
+          font-size: 35px;
+          height: 35px;
+          margin-top: 1px;
+        }
+      }
+
+      &__banner {
+        // Google play、Apple storeへのリンク
+        display: flex;
+        height: 50px;
+        margin-top: 31px;
+        width: 480px;
+
+        &__left {
+
+          &__mercari {
+            height: 68px;
+            padding-right: 24px;
+            width: 68px;
+          }
+        }
+
+        &__middle {
+
+          padding-top: 15px;
+          padding-right: 16px;
+
+          &__apple {
+            height: 40px;
+            width: 133px;
+          }
+        }
+
+        &__right {
+
+          padding-top: 15px;
+
+          &__google {
+            height: 40px;
+            width: 133px;
+          }
+        }
+      }
+    }
+
+    &__right {
+      float: right;
+      height: 262px;
+      width: 300px;
+
+      &__image {
+        height: 262px;
+        width: 300px;
+      }
+    }
+  }
+}

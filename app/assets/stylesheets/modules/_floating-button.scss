@@ -1,0 +1,28 @@
+// トップページの出品ボタン
+.float-sell-btn {
+  background-color: #ea352d;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
+  height: 160px;
+  position: fixed;
+  bottom: 32px;
+  right: 0;
+  margin-right: 32px;
+  width: 160px;
+  z-index: 1000;
+
+  .sell {
+    height: 22px;
+    margin-top: 27px;
+    text-align: center;
+    width: 160px;
+  }
+
+  i {
+    font-size: 58px;
+    height: 54px;
+    margin: 12px 0 0 50px;
+    width: 59px;
+  }
+}

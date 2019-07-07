@@ -1,0 +1,29 @@
+// トップページ上部のスライドショー部分
+-# CSS: modules/top-slider
+
+%section
+  .slider
+    .slider__bx
+      .slider__bx__box--image1
+        .slider__bx__box--image1__contents
+          = link_to root_path, target: "" do
+            = image_tag 'top-image1', alt: 'top-image1', class: 'slider__bx__box--image1__contents__image'
+      .slider__bx__box--image2
+        .slider__bx__box--image2__contents
+          .slider__bx__box--image2__contents__left
+            .slider__bx__box--image2__contents__left__text
+              %h2 スマホでかんたんフリマアプリ
+              %p
+                メルカリはスマホカメラからすぐに出品できる
+                %br
+                購入時も安心な独自システムのアプリです
+            .slider__bx__box--image2__contents__left__banner
+              .slider__bx__box--image2__contents__left__banner__left
+                = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "" do
+                  = image_tag 'app-store', alt: 'top-banner-apple', class: 'slider__bx__box--image2__contents__left__banner__left__apple'
+              .slider__bx__box--image2__contents__left__banner__right
+                = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "" do
+                  = image_tag 'google-play', alt: 'top-banner-google', class: 'slider__bx__box--image2__contents__left__banner__right__google'
+          .slider__bx__box--image2__contents__right
+            = link_to root_path, target: "" do
+              = image_tag 'top-image2', alt: 'top-image2', class: 'slider__bx__box--image2__contents__right__image'
