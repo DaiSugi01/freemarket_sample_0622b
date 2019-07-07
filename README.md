@@ -37,8 +37,8 @@ Things you may want to cover:
 |birthday|data|null: false|
 
 ### Association
-- belongs_to :tbl_profile
-- belongs_to :tbl_buyer
+- has_one :tbl_profile
+- has_many :tbl_buyers
 - has_many :tbl_addresses
 - has_many :tbl_cards
 - has_many :tbl_products
@@ -66,7 +66,7 @@ Things you may want to cover:
 |full-name|string|index: true, null: false|
 |full-name-kana|string|index: true, null: false|
 |zip|integer|null: false|
-|prefectures|string|null: false|
+|mst_prefecture_id|references|null: false, foreign_key: true|
 |address|string|null: false|
 |phone|integer|null: false|
 
@@ -81,7 +81,6 @@ Things you may want to cover:
 |number|integer|null: false|
 |valid_year|integer|null: false|
 |valid_month|integer|null: false|
-|security_number|integer|null: false|
 
 ### Association
 - belongs_to :tbl_user
@@ -92,18 +91,17 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|index: true, null: false|
 |description|text|null: false|
-|price|integer||
+|price|integer|null: false|
 |mst_category_id|references|null: false, foreign_key: true|
 |mst_brand_id|references|foreign_key: true|
 |mst_size_id|references|foreign_key: true|
 |mst_condition_id|references|null: false, foreign_key: true|
 |mst_burden_id|references|null: false, foreign_key: true|
 |mst_delivery_method_id|references|foreign_key: true|
-|mst_prefectures|references|null: false, foreign_key: true|
-|mst_delivery time|references|null: false, foreign_key: true|
-|status_id|references|null: false, foreign_key: true|
+|mst_prefecture_id|references|null: false, foreign_key: true|
+|mst_delivery_time_id|references|null: false, foreign_key: true|
+|mst_status_id|references|null: false, foreign_key: true|
 |tbl_user_id|references|null: false, foreign_key: true|
-|tbl_product_image_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :tbl_user
@@ -153,6 +151,7 @@ Things you may want to cover:
 |tbl_product_id|references|null: false, foreign_key: true|
 |tbl_address_id|references|null: false, foreign_key: true|
 |mst_correspondence_id|references|null: false, foreign_key: true|
+|tbl_message_id|references|foreign_key: true|
 
 ### Association
 - belongs_to :tbl_product
@@ -161,6 +160,7 @@ Things you may want to cover:
 ## tbl_reviewテーブル
 |Column|Type|Options|
 |------|----|-------|
+|review|text||
 |tbl_user_id|references|null: false, foreign_key: true|
 |tbl_product_id|references|null: false, foreign_key: true|
 |mst_score_id|references|null: false, foreign_key: true|
@@ -173,12 +173,13 @@ Things you may want to cover:
 ## tbl_messageテーブル
 |Column|Type|Options|
 |------|----|-------|
+|tbl_user_id|references|null: false, foreign_key: true|
 |tbl_buyer_id|references|null: false, foreign_key: true|
-|tbl_product_id|references|null: false, foreign_key: true|
 |message|text|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :tbl_buyer
+- belongs_to :tbl_user
 
 
 ---------------------------------------
@@ -187,15 +188,18 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|index: true, null: false|
 
+
 ## mst_middle_categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true, null: false|
+|mst_major_category_id|references|null: false, foreign_key: true|
 
 ## mst_small_categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true, null: false|
+|mst_middle_category_id|references|null: false, foreign_key: true|
 
 ## mst_brandテーブル
 |Column|Type|Options|
@@ -219,16 +223,6 @@ Things you may want to cover:
 |mst_small_category_id|references|null: false, foreign_key: true|
 |mst_size_id|references|null: false, foreign_key: true|
 
-## mst_brand
-|Column|Type|Options|
-|------|----|-------|
-|name|string|index: true, null: false|
-
-## mst_size
-|Column|Type|Options|
-|------|----|-------|
-|name|string|index: true, null: false|
-
 ## mst_condition
 |Column|Type|Options|
 |------|----|-------|
@@ -244,7 +238,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|index: true, null: false|
 
-## mst_prefectures
+## mst_prefecture
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true, null: false|
