@@ -1,29 +1,28 @@
 -# トップページ
+.wrapper
 
--# へッター
-= render 'header'
+  -# へッター
+  = render 'header'
 
--# スライドショー部分
-= render 'top-slider'
+  -# スライドショー部分
+  = render 'top-slider'
 
--# 出品ボタン
-= link_to root_path, class: "float-sell-btn" do
-  .sell 出品
-  %i.fa.fa-camera
+  -# 出品ボタン
+  = render 'sell-button'
 
--# 商品一覧
-%section.pickup-container
-  %h2.pickup-container__head
-    = "ピックアップカテゴリー"
-  = render 'top-body'
+  -# 商品一覧
+  %section.pickup-container
+    %h2.pickup-container__head
+      = "ピックアップカテゴリー"
+    = render 'top-body'
 
-%section.pickup-container
-  %h2.pickup-container__head
-    = "ピックアップブランド"
-  = render 'top-body'
+  %section.pickup-container
+    %h2.pickup-container__head
+      = "ピックアップブランド"
+    = render 'top-body'
 
--# バナー
-= render 'app-banner'
+  -# バナー
+  = render 'app-banner'
 
--# フッター
-= render 'footer'
+  -# フッター
+  = render 'footer'
