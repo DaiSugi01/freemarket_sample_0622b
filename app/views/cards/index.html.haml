@@ -2,11 +2,132 @@
 .wrapper
 
   -# ヘッダー
-  = render 'items/header'
+  = render 'shared/header'
 
   -# 出品ボタン
-  = render 'items/sell-button'
+  = render 'shared/sell-button'
 
+  %main.container
+    .container__left
+      %nav.container__left__maypage-nav
+        %ul.container__left__maypage-nav__lists
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "マイページ"
+              %span.container__left__maypage-nav__lists__list__link__count 1
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "お知らせ"
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "やることリスト"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "いいね！一覧"
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "出品する"
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "出品した商品 - 出品中"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "出品した商品 - 取引中"
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "出品した商品 - 売却済み"
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "購入した商品 - 取引中"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "購入した商品 - 過去の取引"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "ニュース一覧"
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "評価一覧"
+              %i.fa.fa-chevron-right  
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "ガイド"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "お問い合わせ"
+              %i.fa.fa-chevron-right
+        %h3.container__left__maypage-nav__head メルペイ
+        %ul.container__left__maypage-nav__lists
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "残高・振込申請"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "ポイント"
+              %i.fa.fa-chevron-right
+        %h3.container__left__maypage-nav__head 設定
+        %ul.container__left__maypage-nav__lists
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "プロフィール"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "発送元・お届け先住所変更"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "支払い方法"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "メール/パスワード"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "本人情報"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "電話番号の確認"
+              %i.fa.fa-chevron-right
+          %li.container__left__maypage-nav__lists__list
+            = link_to root_path, target: "", class: "container__left__maypage-nav__lists__list__link" do
+              = "ログアウト"
+              %i.fa.fa-chevron-right
+
+    .container__right
+      %section.container__right__chapter
+        %h2 支払い方法
+        .container__right__chapter__inner-box
+          %section
+            .container__right__chapter__inner-box__cards
+              %h3 クレジットカード一覧
+              %ul.container__right__chapter__inner-box__cards__lists
+                %li.container__right__chapter__inner-box__cards__list
+          %section
+            .container__right__chapter__inner-box__add-cards
+              .container__right__chapter__inner-box__add-cards__box
+                = link_to root_path, target: "" do
+                  %i.fa.fa-credit-card
+                  %span クレジットカードを追加する
+          .container__right__chapter__inner-box__about-payment
+            = link_to root_path, target: "" do
+              %span 支払い方法について
+              %i.fa.fa-chevron-right
   -# フッター
-  = render 'items/app-banner'
-  = render 'items/footer'
+  = render 'shared/app-banner'
+  = render 'shared/footer'
