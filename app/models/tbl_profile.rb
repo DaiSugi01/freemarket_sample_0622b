@@ -1,0 +1,2 @@
+class TblProfile < ApplicationRecord
+end

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_152728) do
+ActiveRecord::Schema.define(version: 2019_07_09_153423) do
+
+  create_table "tbl_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nickname", null: false
+    t.string "icon"
+    t.text "description"
+    t.bigint "tbl_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tbl_user_id"], name: "index_tbl_profiles_on_tbl_user_id"
+  end
 
   create_table "tbl_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "last_name", null: false
