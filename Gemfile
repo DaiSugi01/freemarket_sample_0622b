@@ -72,6 +72,7 @@ gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'bxslider-rails'
 gem 'devise'
+gem 'rails-i18n'
 
 group :production do
   gem 'unicorn', '5.4.1'
