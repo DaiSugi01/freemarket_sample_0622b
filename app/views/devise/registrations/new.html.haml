@@ -34,21 +34,27 @@
     .field
       = f.label "生年月日" 
       %br/
-      %select
-        %option{value: ""} -- 
-        %option{value: "2000"} 2000 
-        %option{value: "2000"} 2001 
-        %option{value: "2000"} 2002
-      %select
-        %option{value: ""} -- 
-        %option{value: "1"} 1 
-        %option{value: "2"} 2 
-        %option{value: "3"} 3 
-      %select
-        %option{value: ""} -- 
-        %option{value: "1"} 1 
-        %option{value: "2"} 2 
-        %option{value: "3"} 3 
+      = f.text_field :birthday, placeholder: "例）1995-09-01"
+      -#
+        %select
+          %option{value: ""} -- 
+          %option{value: "2000"} 2000 
+          %option{value: "2000"} 2001 
+          %option{value: "2000"} 2002
+        %select
+          %option{value: ""} -- 
+          %option{value: "1"} 1 
+          %option{value: "2"} 2 
+          %option{value: "3"} 3 
+        %select
+          %option{value: ""} -- 
+          %option{value: "1"} 1 
+          %option{value: "2"} 2 
+          %option{value: "3"} 3 
+    .field
+      = f.label "電話番号" 
+      %br/
+      = f.text_field :phone, placeholder: "例）ハイフンなし"
     .field
       %p ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
     .actions
