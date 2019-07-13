@@ -15,9 +15,12 @@ class TblUser::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    binding.pry
+    profile = TblProfile.new(nickname: params[:nickname], tbl_user_id: resource.id)
+    profile.save
+  end
 
   # GET /resource/edit
   # def edit
