@@ -4,25 +4,31 @@
   margin: 0 auto;
   padding: 30px;
   text-align: center;
-  ul {
+  .sign_up_header__flow {
     display: inline-block;
     margin: 0 auto;
     text-align: center;
     font-size: 13px;
     color: #989898;
-    li {
+    .sign_up_header__flow__elem {
       float: left;
       margin: auto 0;
       margin-left: 40px;
-      .status {
+      .sign_up_header__flow__elem__status {
         width: 10px;
         height: 10px;
         margin: 5px auto;
         background-color: #CCCCCC;
         border-radius: 50%;
       }
-      .status::after {
+      .sign_up_header__flow__elem__status::after {
         border: solid #989898;
+      }
+    }
+    .flow--red {
+      color: red;
+      .flow--back--red {
+        background-color: red;
       }
     }
   }

@@ -1,18 +1,18 @@
 %header.sign_up_header
   = image_tag 'mercari.png', alt: 'mercari', width: '185', height: '49', class: 'header__inner__top__header-image'
-  %ul
-    %li
+  %ul.sign_up_header__flow
+    %li.sign_up_header__flow__elem.flow--red
       %p 会員情報
-      %p.status
-    %li
+      %p.sign_up_header__flow__elem__status.flow--back--red
+    %li.sign_up_header__flow__elem
       %p 電話番号認証
-      %p.status
-    %li
+      %p.sign_up_header__flow__elem__status
+    %li.sign_up_header__flow__elem
       %p お届け先住所入力
-      %p.status
-    %li
+      %p.sign_up_header__flow__elem__status
+    %li.sign_up_header__flow__elem
       %p 支払い方法
-      %p.status
-    %li
+      %p.sign_up_header__flow__elem__status
+    %li.sign_up_header__flow__elem
       %p 完了
-      %p.status
+      %p.sign_up_header__flow__elem__status

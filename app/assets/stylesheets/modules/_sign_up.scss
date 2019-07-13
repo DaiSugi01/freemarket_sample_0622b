@@ -1,15 +1,17 @@
 html, body{
   width: 100%;
   height: 100%;
+  /*
   background-color: #F5F5F5;
+  */
 }
 
 .sign_up {
   width: 700px;
   margin: 0 auto;
-  background-color: white; 
+  background-color: #F5F5F5; 
 
-  h2 {
+  .sign_up__title {
     padding: 25px 0;
     border-bottom: solid 1px #F5F5F5;
     text-align: center;
@@ -19,11 +21,11 @@ html, body{
   .sign_up__field {
     width: 350px;
     margin: 20px auto;
-    label {
+    .sign_up__field__label {
       font-size: 15px;
       font-weight: bold;
     }
-    input {
+    .sign_up__field__input {
       width: calc(100% - 15px);
       height: 40px;
       margin: 5px 0;
@@ -40,8 +42,11 @@ html, body{
       font-size: 12px;
       color: white;
     }
-    a, p, .info {
+    .info {
       font-size: 14px;
+    }
+    a.info {
+      color: #55AEED;
     }
     .center {
       text-align: center;
