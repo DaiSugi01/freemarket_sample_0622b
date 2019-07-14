@@ -17,7 +17,6 @@ class TblUser::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    binding.pry
     profile = TblProfile.new(nickname: params[:nickname], tbl_user_id: resource.id)
     profile.save
   end

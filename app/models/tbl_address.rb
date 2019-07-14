@@ -1,0 +1,2 @@
+class TblAddress < ApplicationRecord
+end
