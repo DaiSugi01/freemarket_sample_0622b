@@ -21,4 +21,5 @@ class TblUser < ApplicationRecord
   validates :phone, format: { with: /[0-9\-]+/, message: 'は半角数字とハイフンのみ使用できます'}
 
   has_one :tbl_profile
+  has_many :tbl_addresses
 end
