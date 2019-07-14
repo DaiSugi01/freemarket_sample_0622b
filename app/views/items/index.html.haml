@@ -14,12 +14,72 @@
   %section.pickup-container
     %h2.pickup-container__head
       = "ピックアップカテゴリー"
-    = render 'top-body'
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "レディース 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @ladies_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
+
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "メンズ 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @mens_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
+
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "ベビー・キッズ 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @kids_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
+
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "コスメ・香水・美容 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @cosmes_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
 
   %section.pickup-container
     %h2.pickup-container__head
       = "ピックアップブランド"
-    = render 'top-body'
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "シャネル 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @chanel_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
+
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "ルイ ヴィトン 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @vuitton_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
+
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "シュプリーム 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @supreme_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
+
+    %section.pickup-container__items
+      %h3.pickup-container__items__text
+        = link_to "ナイキ 新着アイテム", root_path, target: ""
+      .pickup-container__items__box
+        = render partial: "top-body", collection: @nike_products, as: :product
+      .pickup-container__items__view-all
+        = link_to "すべての商品を見る", root_path, target: "" 
 
   -# バナー
   = render 'shared/app-banner'
