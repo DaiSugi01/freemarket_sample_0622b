@@ -1,3 +1,3 @@
-class ProductImage < ApplicationRecord
+class ImageItem < ApplicationRecord
   mount_uploader :image, ImageUploader
 end
