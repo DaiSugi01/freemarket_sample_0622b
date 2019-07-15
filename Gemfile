@@ -45,6 +45,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -71,7 +73,6 @@ gem 'erb2haml'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'bxslider-rails'
-gem 'rspec-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
