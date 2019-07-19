@@ -1,0 +1,147 @@
+-# 商品出品画面
+
+.exhibit-container
+  %header.exhibit-container__header
+    %h1
+      = link_to root_path do
+        =image_tag 'mercari.png',  alt: 'mercari', width: '185', height: '49',class: 'header-logo'
+
+  %main.exhibit-container__main
+
+
+    -# ここから入力欄
+    .exhibit-container__main__sell
+      .exhibit-container__main__sell__head
+        %h2
+          商品の情報を入力
+
+      -# 出品画像アップロード
+      .exhibit-container__main__sell__upload-box
+        %h3
+          出品画像
+          %span.required
+            必須
+        %p
+          最大10枚までアップロードできます
+        .exhibit-container__main__sell__upload-box__upload-area
+          .exhibit-container__main__sell__upload-box__upload-area__text
+            ドラッグアンドドロップ<br>
+            またはクリックしてファイルをアップロード
+
+      -# 商品名/商品の説明
+      .exhibit-container__main__sell__content-1
+        %h3
+          商品名
+          .required
+            必須
+        = form_for @item do |f|
+          = f.text_field :name, placeholder: "商品名（必須 40文字まで）", class: 'name-field'
+        %h3
+          商品の説明
+          .required
+            必須
+        = form_for @item do |f|
+          = f.text_area :description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: 'description-area'
+      
+      -# 商品の詳細（カテゴリー/商品の状態）
+      .exhibit-container__main__sell__content-2
+        %h3.category
+          商品の詳細
+          .exhibit-container__main__sell__content-2__right-group1
+            %h3
+              カテゴリー
+              .required
+                必須
+            = form_for @item do |f|
+              = f.select :name,["select","select2"],{},{class:'select-box'}
+          .exhibit-container__main__sell__content-2__right-group2
+            %h3
+              商品の状態
+              .required
+                必須
+            = form_for @item do |f|
+              = f.select :name,["select","select2"],{},class:'select-box',include_blank: true
+
+      -# 配送について（配送料の負担/配送元の地域/配送までの日数）
+      .exhibit-container__main__sell__content-3
+        %h3.category
+          配送について
+          .exhibit-container__main__sell__content-3__right-group1
+            %h3
+              配送料の負担
+              .required
+                必須
+            = form_for @item do |f|
+              = f.select :name,["select","select2"],{},{class:'select-box'}
+          .exhibit-container__main__sell__content-3__right-group2
+            %h3
+              配送元の地域
+              .required
+                必須
+            = form_for @item do |f|
+              = f.select :name,["select","select2"],{},{class:'select-box'}
+
+          .exhibit-container__main__sell__content-3__right-group3
+            %h3
+              配送までの日数
+              .required
+                必須
+            = form_for @item do |f|
+              = f.select :name,["select","select2"],{},{class:'select-box'}
+
+      .exhibit-container__main__sell__content-4
+        %h3.category
+          販売価格(300〜9,999,999)
+          %ul.exhibit-container__main__sell__content-4__right-group4
+            %li.exhibit-container__main__sell__content-4__right-group4__price
+              .exhibit-container__main__sell__content-4__right-group4__price-title
+                %h3.label
+                  価格
+                  %span.required
+                    必須 
+
+              .exhibit-container__main__sell__content-4__right-group4__input-price
+                = form_for @item do |f|
+                  = f.label :price,"¥", class: 'label-name'
+                  = f.text_field :price, placeholder: "例）300", class: 'price-field'
+
+            %li.exhibit-container__main__sell__content-4__right-group4__sales-charge
+              %h3.normal.exhibit-container__main__sell__content-4__right-group4__sales-charge__price
+                販売手数料(10%)
+              %p.exhibit-container__main__sell__content-4__right-group4__sales-charge__result
+            %li.exhibit-container__main__sell__content-4__right-group4__sales-price
+              %h3.label.exhibit-container__main__sell__content-4__right-group4__sales-price__selling-price
+                販売利益
+              %p.label.exhibit-container__main__sell__content-4__right-group4__sales-price__selling-price.result
+      
+      
+      .exhibit-container__main__sell__sell-btn
+        %div
+          %p<
+            %span< 禁止されている出品、行為
+            を必ずご確認ください。
+          %p<
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            %span< 偽ブランドの販売
+            は犯罪であり処罰される可能性があります。
+          %p<
+            また、出品をもちまして
+            %span< 加盟店規約
+            に同意したことになります。
+
+        
+        = form_for @item do |f|
+          = f.submit "出品する", class: 'send-btn'
+        %a.return-btn
+          もどる
+
+
+  %footer.exhibit-container__footer
+    %ul
+      %li< プライバシーポリシー
+      %li.li-2< メルカリ利用規約
+      %li.li-2< 特定商取引に関する表記
+    .exhibit-container__footer__mercari-logo
+      = link_to image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?891577966', alt: '', height: '65', width: '80'),root_path
+    .exhibit-container__footer__comment
+      © 2019 Mercari
