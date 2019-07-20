@@ -52,7 +52,7 @@ describe TblUser do
     it "is invalid without a password_confirmation" do
       user = build(:tbl_user, password_confirmation: "")
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("とPasswordの入力が一致しません")
+      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
     end
 
     # 字数制限
