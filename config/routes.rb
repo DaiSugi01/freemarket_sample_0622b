@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'items#index'
+  root 'products#index'
   resources :cards, only: [:index]
 
 end
