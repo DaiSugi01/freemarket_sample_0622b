@@ -10,6 +10,137 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_07_20_201922) do
 
+  create_table "mst_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_brands_on_name"
+  end
+
+  create_table "mst_burdens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_burdens_on_name"
+  end
+
+  create_table "mst_conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_conditions_on_name"
+  end
+
+  create_table "mst_delivery_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_delivery_methods_on_name"
+  end
+
+  create_table "mst_delivery_times", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_delivery_times_on_name"
+  end
+
+  create_table "mst_major_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_major_categories_on_name"
+  end
+
+  create_table "mst_prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_prefectures_on_name"
+  end
+
+  create_table "mst_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_sizes_on_name"
+  end
+
+  create_table "mst_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_statuses_on_name"
+  end
+
+  create_table "tbl_product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "tbl_product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tbl_product_id"], name: "index_tbl_product_images_on_tbl_product_id"
+  end
+
+  create_table "tbl_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "price", null: false
+    t.bigint "mst_major_category_id", null: false
+    t.bigint "mst_brand_id"
+    t.bigint "mst_size_id"
+    t.bigint "mst_condition_id", null: false
+    t.bigint "mst_burden_id", null: false
+    t.bigint "mst_delivery_method_id"
+    t.bigint "mst_prefecture_id", null: false
+    t.bigint "mst_delivery_time_id", null: false
+    t.bigint "mst_status_id", null: false
+    t.bigint "tbl_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mst_brand_id"], name: "index_tbl_products_on_mst_brand_id"
+    t.index ["mst_burden_id"], name: "index_tbl_products_on_mst_burden_id"
+    t.index ["mst_condition_id"], name: "index_tbl_products_on_mst_condition_id"
+    t.index ["mst_delivery_method_id"], name: "index_tbl_products_on_mst_delivery_method_id"
+    t.index ["mst_delivery_time_id"], name: "index_tbl_products_on_mst_delivery_time_id"
+    t.index ["mst_major_category_id"], name: "index_tbl_products_on_mst_major_category_id"
+    t.index ["mst_prefecture_id"], name: "index_tbl_products_on_mst_prefecture_id"
+    t.index ["mst_size_id"], name: "index_tbl_products_on_mst_size_id"
+    t.index ["mst_status_id"], name: "index_tbl_products_on_mst_status_id"
+    t.index ["tbl_user_id"], name: "index_tbl_products_on_tbl_user_id"
+  end
+
+  create_table "tbl_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "last_name_kana", null: false
+    t.string "mail", null: false
+    t.string "password", null: false
+    t.integer "phone", null: false
+    t.datetime "birthday", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["birthday"], name: "index_tbl_users_on_birthday"
+    t.index ["first_name"], name: "index_tbl_users_on_first_name"
+    t.index ["first_name_kana"], name: "index_tbl_users_on_first_name_kana"
+    t.index ["last_name"], name: "index_tbl_users_on_last_name"
+    t.index ["last_name_kana"], name: "index_tbl_users_on_last_name_kana"
+    t.index ["mail"], name: "index_tbl_users_on_mail"
+    t.index ["password"], name: "index_tbl_users_on_password"
+    t.index ["phone"], name: "index_tbl_users_on_phone"
+  end
+
+  add_foreign_key "tbl_product_images", "tbl_products"
+  add_foreign_key "tbl_products", "mst_brands"
+  add_foreign_key "tbl_products", "mst_burdens"
+  add_foreign_key "tbl_products", "mst_conditions"
+  add_foreign_key "tbl_products", "mst_delivery_methods"
+  add_foreign_key "tbl_products", "mst_delivery_times"
+  add_foreign_key "tbl_products", "mst_major_categories"
+  add_foreign_key "tbl_products", "mst_prefectures"
+  add_foreign_key "tbl_products", "mst_sizes"
+  add_foreign_key "tbl_products", "mst_statuses"
+  add_foreign_key "tbl_products", "tbl_users"
 end
