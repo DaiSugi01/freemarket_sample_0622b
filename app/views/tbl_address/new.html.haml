@@ -2,22 +2,26 @@
 .sign_up
   %h2.sign_up__title 住所入力
   = form_for(@address, url: '/address', method: :post) do |f|
-    = render "devise/shared/error_messages", resource: @address
+    - if @address.errors.any?
+      #error_explanation.alert.alert-danger
+        %ul
+          - @address.errors.full_messages.each do |message|
+            %li= message
     .sign_up__field
       = f.label "お名前", class: "sign_up__field__label"
       %span.required 必須
       %br/
-      %input{name: "full_name", class: "sign_up__field__input", autofocus: true, placeholder: "例）山田彩", required: true}
+      %input{name: "full_name", class: "sign_up__field__input", autofocus: true, placeholder: "例）山田彩"}
     .sign_up__field
       = f.label "お名前カナ", class: "sign_up__field__label"
       %span.required 必須
       %br/
-      %input{name: "full_name_kana", class: "sign_up__field__input", autofocus: true, placeholder: "例）ヤマダアヤ", required: true}
+      %input{name: "full_name_kana", class: "sign_up__field__input", autofocus: true, placeholder: "例）ヤマダアヤ"}
     .sign_up__field
       = f.label "郵便番号", class: "sign_up__field__label"
       %span.required 必須
       %br/
-      %input{name: "zip", class: "sign_up__field__input", autofocus: true, placeholder: "例）123-4567", required: true}
+      %input{name: "zip", class: "sign_up__field__input", autofocus: true, placeholder: "例）123-4567"}
     .sign_up__field
       = f.label "都道府県", class: "sign_up__field__label"
       %span.required 必須
@@ -27,12 +31,12 @@
       = f.label "住所", class: "sign_up__field__label"
       %span.required 必須
       %br/
-      %input{name: "address", class: "sign_up__field__input", autofocus: true, placeholder: "例）渋谷区神南1-1アジアビル9F", required: true}
+      %input{name: "address", class: "sign_up__field__input", autofocus: true, placeholder: "例）渋谷区神南1-1アジアビル9F"}
     .sign_up__field
       = f.label "電話番号", class: "sign_up__field__label"
       %span.required 必須
       %br/
-      %input{name: "phone", class: "sign_up__field__input", autofocus: true, placeholder: "例）08044556622", required: true}
+      %input{name: "phone", class: "sign_up__field__input", autofocus: true, placeholder: "例）08044556622"}
     .sign_up__field
       = f.submit "次へ進む", class: "button"
     .sign_up__field.sign_up__field--empty
