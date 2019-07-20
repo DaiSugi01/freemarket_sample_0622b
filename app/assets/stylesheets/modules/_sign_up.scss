@@ -4,6 +4,11 @@
   .sign_up__title {
     @include form_title();
   }
+  #error_explanation {
+    margin: 0 30px;
+    color: red;
+    font-size: 15px;
+  }
   .sign_up__field {
     @include form_field();
     .sign_up__field__label {

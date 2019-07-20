@@ -11,8 +11,8 @@ class TblUser < ApplicationRecord
   validates :birthday, presence: true
   validates :phone, presence: true
 
-  validates :last_name_kana, format: { with: /\p{Katakana}/, message: 'は全角カナで入力してください' } 
-  validates :first_name_kana, format: { with: /\p{Katakana}/, message: 'は全角カナで入力してください' } 
+  validates :last_name_kana, format: { with: /\p{Katakana}/, message: 'は全角カナのみ使用できます' } 
+  validates :first_name_kana, format: { with: /\p{Katakana}/, message: 'は全角カナのみ使用できます' } 
   validates :birthday, format: { with: /[0-9\-]+/, message: 'は半角数字とハイフンのみ使用できます'}
   validates :phone, format: { with: /[0-9\-]+/, message: 'は半角数字とハイフンのみ使用できます'}
 

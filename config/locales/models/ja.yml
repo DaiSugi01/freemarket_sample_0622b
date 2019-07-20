@@ -10,7 +10,7 @@ ja:
         first_name_kana: メイ
         email: メールアドレス
         password: パスワード
-        passeord_confirmation: パスワード確認
+        password_confirmation: パスワード確認
         phone: 電話番号
         birthday: 生年月日
       
