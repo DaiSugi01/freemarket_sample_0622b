@@ -2,11 +2,11 @@
   width: 500px;
   margin: 0 auto;
   background-color: #F5F5F5; 
-  .sign_in__sign_up_link {
+  &__sign_up_link {
     padding: 50px 0;
     border-bottom: solid 1px #EEEEEE;
   }
-  .sign_in__field {
+  &__field {
     @include form_field();
     p.info {
       margin-bottom: 5px;
@@ -14,7 +14,7 @@
       font-size: 15px;
       color: #333333;
     }
-    .sign_in__field__link {
+    &__link {
       display: inline-block;
       width: 100%;
       line-height: 50px;
@@ -48,13 +48,13 @@
       border: solid 1px #979797;
       color: #333333;
     }
-    .sign_in__field__input {
+    &__input {
       @include form_input();
     }
-    .sign_in__field--button {
+    &--button {
       @include form_button();
     }
-    .sign_in__field__new_password_link {
+    &__new_password_link {
       display: inline-block;
       padding-bottom: 30px;
       text-decoration: none;

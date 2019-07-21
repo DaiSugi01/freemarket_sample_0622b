@@ -3,12 +3,12 @@
   text-align: center;
   font-size: 11px;
   color: #535353;
-  .sign_up_footer__link {
+  &__link {
     margin: 0 5px;
     text-decoration: none;
     color: #535353;
   }
-  .sign_up_footer__logo {
+  &__logo {
     margin-top: 40px;
     margin-bottom: 5px;
   }

@@ -1,7 +1,7 @@
 .sign_up {
   @include form_main();
 
-  .sign_up__title {
+  &__title {
     @include form_title();
   }
   #error_explanation {
@@ -9,12 +9,12 @@
     color: red;
     font-size: 15px;
   }
-  .sign_up__field {
+  &__field {
     @include form_field();
-    .sign_up__field__label {
+    &__label {
       @include form_label();
     }
-    .sign_up__field__input {
+    &__input {
       @include form_input();
     }
     .inline {
@@ -43,7 +43,7 @@
       @include form_button();
     }
   }
-  .sign_up__field--empty {
+  &__field--empty {
     padding-bottom: 50px;
   }
 }

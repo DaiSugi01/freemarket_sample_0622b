@@ -4,24 +4,24 @@
   margin: 0 auto;
   padding: 30px;
   text-align: center;
-  .sign_up_header__flow {
+  &__flow {
     display: inline-block;
     margin: 0 auto;
     text-align: center;
     font-size: 13px;
     color: #989898;
-    .sign_up_header__flow__elem {
+    &__elem {
       float: left;
       margin: auto 0;
       margin-left: 40px;
-      .sign_up_header__flow__elem__status {
+      &__status {
         width: 10px;
         height: 10px;
         margin: 5px auto;
         background-color: #CCCCCC;
         border-radius: 50%;
       }
-      .sign_up_header__flow__elem__status::after {
+      &__status::after {
         border: solid #989898;
       }
     }
