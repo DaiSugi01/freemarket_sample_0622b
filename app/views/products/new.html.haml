@@ -8,7 +8,7 @@
 
   %main.exhibit-container__main
 
-    = form_for(@products, url:{controller:'products', action:'create'}) do |f|
+    = form_for products_path(@products) do |f|
       -# ここから入力欄
       .exhibit-container__main__sell
         .exhibit-container__main__sell__head
