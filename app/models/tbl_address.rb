@@ -8,6 +8,6 @@ class TblAddress < ApplicationRecord
   validates :address, presence: true
   validates :phone, presence: true
 
-  validates :zip, format: { with: /[0-9]+/, message: 'は半角数字のみ使用できます'}
+  validates :zip, numericality: true
   validates :phone, format: { with: /[0-9\-]+/, message: 'は半角数字とハイフンのみ使用できます'}
 end

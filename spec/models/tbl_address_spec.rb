@@ -40,9 +40,9 @@ describe TblAddress do
 
     # 文字種制限
     it "is invalid if zenkaku in a zip" do
-      user = build(:tbl_address, zip: "１３５の００１２")
+      user = build(:tbl_address, zip: "あいうえお")
       user.valid?
-      # expect(user.errors[:zip]).to include("は半角数字のみ使用できます===")
+      expect(user.errors[:zip]).to include("は数値で入力してください")
     end
     it "is invalid if zenkaku in a phone" do
       user = build(:tbl_address, phone: "０８０１２３４５６７８")
