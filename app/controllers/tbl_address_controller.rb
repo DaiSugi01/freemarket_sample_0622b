@@ -12,7 +12,6 @@ class TblAddressController < ApplicationController
     if @address.save
       redirect_to root_path 
     else
-      @address = current_tbl_user.tbl_addresses.new()
       @prefs = MstPrefecture.all()
       render 'new'
     end
