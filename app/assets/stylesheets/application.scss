@@ -1,6 +1,7 @@
 @import "reset";
 @import "font-awesome";
 @import "mixin/clearfix";
+@import "mixin/global";
 @import "mixin/link-buttons";
 @import "modules/wrapper";
 @import "modules/header";
@@ -12,3 +13,4 @@
 @import "modules/cards";
 @import "modules/mypage-left";
 @import "vender/jquery.bxslider";
+@import "modules/new";

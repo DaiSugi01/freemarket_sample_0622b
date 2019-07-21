@@ -1,0 +1,83 @@
+-# フッター部分 
+-# CSS: modules/footer
+
+%footer.footer
+  %nav.footer__nav
+    .footer__nav__cell
+      %h2.footer__nav__cell__head メルカリについて
+      %ul.footer__nav__cell__lists
+        %li.footer__nav__cell__lists__list
+          = link_to "会社概要（運営会社）", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "採用情報", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "プレスリリース", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "公式ブログ", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "メルカリロゴ利用ガイドライン", root_path, class: "footer__nav__cell__lists__list__link"
+        .footer__nav__cell__lists__list__box
+          %li.footer__nav__cell__lists__list__box--twitter
+            = link_to "https://twitter.com/mercari_jp", class: "footer__nav__cell__lists__list__box--twitter__link" do
+              %i.fa.fa-twitter.fa-2x
+          %li.footer__nav__cell__lists__list__box--facebook
+            = link_to "https://www.facebook.com/mercarijp", class: "footer__nav__cell__lists__list__box--facebook__link" do
+              %i.fa.fa.fa-facebook-square.fa-2x
+  
+    .footer__nav__cell
+      %h2.footer__nav__cell__head ヘルプ＆ガイド
+      %ul.footer__nav__cell__lists
+        %li.footer__nav__cell__lists__list
+          = link_to "メルカリガイド", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "らくらくメルカリ便", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "ゆうゆうメルカリ便", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "大型メルカリ便", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "車体取引ガイド", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "メルカリあんしん・あんぜん宣言！", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "偽ブランド品撲滅への取り組み", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "メルカリボックス", root_path, class: "footer__nav__cell__lists__list__link"
+
+    .footer__nav__cell.footer__nav__cell--rules
+      %h2.footer__nav__cell__head プライバシーと利用規約
+      .footer__nav__cell__inner--left
+        %ul.footer__nav__cell__lists
+          %li.footer__nav__cell__lists__list
+            = link_to "プライバシーポリシー", root_path, class: "footer__nav__cell__lists__list__link"
+          %li.footer__nav__cell__lists__list
+            = link_to "メルカリ利用規約", root_path, class: "footer__nav__cell__lists__list__link"
+          %li.footer__nav__cell__lists__list
+            = link_to "あんしんスマホサポート制度に関する利用特約", root_path, class: "footer__nav__cell__lists__list__link"
+          %li.footer__nav__cell__lists__list
+            = link_to "コンプライアンスポリシー", root_path, class: "footer__nav__cell__lists__list__link"
+      .footer__nav__cell__inner--right
+        %ul.footer__nav__cell__lists
+          %li.footer__nav__cell__lists__list
+            = link_to "個人データの安全管理に係る基本方針", root_path, class: "footer__nav__cell__lists__list__link"
+          %li.footer__nav__cell__lists__list
+            = link_to "特定商取引に関する表記", root_path, class: "footer__nav__cell__lists__list__link"
+          %li.footer__nav__cell__lists__list
+            = link_to "資金決済法に基づく表示", root_path, class: "footer__nav__cell__lists__list__link"
+          %li.footer__nav__cell__lists__list
+            = link_to "法令順守と犯罪抑止のために", root_path, class: "footer__nav__cell__lists__list__link"
+          %li.footer__nav__cell__lists__list
+            = link_to "返品・返金ポリシー", root_path, class: "footer__nav__cell__lists__list__link"
+ 
+    .footer__nav__cell.footer__nav__cell--lang
+      %h2.footer__nav__cell__head 国
+      %ul.footer__nav__cell__lists
+        %li.footer__nav__cell__lists__list
+          = link_to "日本", root_path, class: "footer__nav__cell__lists__list__link"
+        %li.footer__nav__cell__lists__list
+          = link_to "United States", root_path, class: "footer__nav__cell__lists__list__link"
+  .footer__bottom
+    = link_to root_path, class: "footer__bottom__mercari" do
+      = image_tag 'bottom-icon-mericari.png', alt: 'bottom-icon-mercari', class: 'footer__bottom__mercari__image'
+    %span
+      %small © 2019 Mercari

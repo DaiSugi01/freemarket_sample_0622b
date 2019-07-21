@@ -1,0 +1,2 @@
+class TblProduct < ApplicationRecord
+end
