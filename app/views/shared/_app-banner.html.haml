@@ -1,0 +1,21 @@
+-# ページ下部のバナー部分 
+-# CSS: modules/app-banner
+
+%aside.app-banner
+  .app-banner__contents
+    .app-banner__contents__left
+      .app-banner__contents__left__text
+        %h2 スマホでかんたんフリマアプリ
+        %p 今すぐ無料ダウンロード！
+      .app-banner__contents__left__banner
+        .app-banner__contents__left__banner__left
+          = image_tag 'mercari_icon.png', alt: 'bottom-icon-mercari', class: 'app-banner__contents__left__banner__left__mercari'
+        .app-banner__contents__left__banner__middle
+          = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "" do
+            = image_tag 'app-store', alt: 'top-banner-apple', class: 'app-banner__contents__left__banner__middle__apple'
+        .app-banner__contents__left__banner__right
+          = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "" do
+            = image_tag 'google-play', alt: 'top-banner-google', class: 'app-banner__contents__left__banner__right__google'
+    .app-banner__contents__right
+      = link_to root_path, target: "" do
+        = image_tag 'bottom-banner-phone.png', alt: 'bottom-banner-phone', class: 'app-banner__contents__right__image'

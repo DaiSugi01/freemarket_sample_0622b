@@ -1,0 +1,33 @@
+-# クレジットカード追加画面
+.wrapper
+
+  -# ヘッダー
+  = render 'shared/header'
+
+  -# 出品ボタン
+  = render 'shared/sell-button'
+
+  %main.container
+    = render 'shared/mypage-left-contents'
+    .container__right
+      %section.container__right__chapter
+        %h2 支払い方法
+        .container__right__chapter__inner-box
+          %section
+            .container__right__chapter__inner-box__cards
+              %h3 クレジットカード一覧
+              %ul.container__right__chapter__inner-box__cards__lists
+                %li.container__right__chapter__inner-box__cards__list
+          %section
+            .container__right__chapter__inner-box__add-cards
+              .container__right__chapter__inner-box__add-cards__box
+                = link_to root_path, target: "" do
+                  %i.fa.fa-credit-card
+                  %span クレジットカードを追加する
+          .container__right__chapter__inner-box__about-payment
+            = link_to root_path, target: "" do
+              %span 支払い方法について
+              %i.fa.fa-chevron-right
+  -# フッター
+  = render 'shared/app-banner'
+  = render 'shared/footer'
