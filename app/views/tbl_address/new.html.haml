@@ -1,7 +1,7 @@
 = render "devise/registrations/header"
 .sign_up
   %h2.sign_up__title 住所入力
-  = form_for(@address, url: '/address', method: :post) do |f|
+  = form_for(@address, url: tbl_user_tbl_address_index_path) do |f|
     = render "devise/shared/error_messages", resource: @address
     .sign_up__field
       = f.label "お名前", class: "sign_up__field__label"

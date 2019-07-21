@@ -13,11 +13,11 @@ class TblUser::RegistrationsController < Devise::RegistrationsController
 
   private
   def after_sign_up_path_for(resource)
-    address_path
+    new_tbl_user_tbl_address_path(tbl_user_id: resource.id)
   end
 
   def after_inactive_sign_up_path_for(resource)
-    address_path
+    new_tbl_user_tbl_address_path(tbl_user_id: resource.id)
   end
 
   def configure_permitted_parameters

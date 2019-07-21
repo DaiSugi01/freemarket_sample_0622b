@@ -1,14 +1,14 @@
 class TblAddressController < ApplicationController
   before_action :tbl_address_params, only: [:create]
-  before_action :redirect_to_top, only: [:new]
+  # before_action :redirect_to_top, only: [:new]
 
   def new
-    @address = current_tbl_user.tbl_addresses.new()
+    @address = TblUser.find(params['tbl_user_id']).tbl_addresses.new()
     @prefs = MstPrefecture.all()
   end
 
   def create
-    @address = current_tbl_user.tbl_addresses.new(tbl_address_params)
+    @address = TblUser.find(params['tbl_user_id']).tbl_addresses.new(tbl_address_params)
     if @address.save
       redirect_to root_path 
     else
