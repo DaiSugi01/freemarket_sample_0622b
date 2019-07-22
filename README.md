@@ -88,7 +88,7 @@ Things you may want to cover:
 - belongs_to :tbl_user
 
 
-## tbl_productテーブル
+## tbl_productsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|index: true, null: false|

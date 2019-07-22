@@ -1,0 +1,55 @@
+-# へッター部分 
+-# CSS: modules/header
+
+%header.header
+  .header__inner
+    .header__inner__top
+      %h1
+        = link_to root_path, target: "" do
+          = image_tag 'mercari.png', alt: 'mercari', width: '134', height: '36', class: 'header__inner__top__header-image'
+      =form_tag(root_path, class: "header__inner__top__form") do
+        = search_field_tag("keyword", "", {placeholder: "何かお探しですか？", class: "header__inner__top__form__search-field"})
+        = button_tag(type: "submit", class: "header__inner__top__form__submit") do
+          %i.fa.fa-search
+    .header__inner__nav-box
+      .header__inner__nav-box__left-box
+        %ul
+          %li
+            %h2
+              %i.fa.fa-list-ul
+              = link_to root_path, class: "header__inner__nav-box__left-box__root" do
+                %span カテゴリーから探す
+          %li
+            %h2
+              %i.fa.fa-tags
+              = link_to root_path, class: "header__inner__nav-box__left-box__root" do
+                %span ブランドから探す
+      .header__inner__nav-box__right-box
+        %ul.header__inner__nav-box__right-box--member
+          %li.header__inner__nav-box__right-box--member--signup
+            = link_to "新規会員登録", root_path, class: "header__inner__nav-box__right-box--member--signup__link"
+          %li.header__inner__nav-box__right-box--member--signin
+            = link_to "ログイン", root_path, class: "header__inner__nav-box__right-box--member--signin__link"
+
+        -# 以下、ユーザー管理機能実装後に使用。
+        -# %ul.header__inner__nav-box__right-box--not-member
+        -#   %li
+        -#     %h2
+        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+        -#         %i.fa.fa-heart.fa-lg
+        -#         %span.header__inner__nav-box__right-box__root__text いいね！一覧
+        -#   %li
+        -#     %h2
+        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+        -#         %i.fa.fa-bell.fa-lg
+        -#         %span.header__inner__nav-box__right-box__root__text お知らせ
+        -#   %li
+        -#     %h2
+        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+        -#         %i.fa.fa-check.fa-lg
+        -#         %span.header__inner__nav-box__right-box__root__text やることリスト
+        -#   %li
+        -#     %h2
+        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+        -#         = image_tag 'test-user-icon.jpeg', alt: 'user-icon', class: 'header__inner__nav-box__right-box__root__icon'
+        -#         %span.header__inner__nav-box__right-box__root__text--mypage マイページ
