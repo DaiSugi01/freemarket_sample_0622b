@@ -20,4 +20,11 @@ class ProductsController < ApplicationController
     @nike_products = TblProduct.new.getBlands(4)
   end
 
+  def new
+    @products = TblProduct.new
+  end
+  
+  def create
+  end
+
 end
