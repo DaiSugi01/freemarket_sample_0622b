@@ -1,8 +1,11 @@
 require 'rails_helper'
 
-# deviseの機能そのものはテストから省略
-describe TblUser::RegistrationsController do
+describe TblAddressController do
   describe 'get#new' do
-  
+    it 'get @prefs' do
+      @prefs = create_list(:mst_prefecture, 47) 
+      get :new, params: { tbl_user_id: '13' }
+      expect(assigns(prefs)).to match(@prefs)
+    end  
   end
 end
