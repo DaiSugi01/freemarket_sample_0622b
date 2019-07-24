@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_20_201922) do
+ActiveRecord::Schema.define(version: 2019_07_13_152439) do
 
   create_table "mst_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -96,7 +96,6 @@ ActiveRecord::Schema.define(version: 2019_07_20_201922) do
     t.bigint "mst_prefecture_id", null: false
     t.bigint "mst_delivery_time_id", null: false
     t.bigint "mst_status_id", null: false
-    t.bigint "tbl_user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mst_brand_id"], name: "index_tbl_products_on_mst_brand_id"
@@ -108,28 +107,6 @@ ActiveRecord::Schema.define(version: 2019_07_20_201922) do
     t.index ["mst_prefecture_id"], name: "index_tbl_products_on_mst_prefecture_id"
     t.index ["mst_size_id"], name: "index_tbl_products_on_mst_size_id"
     t.index ["mst_status_id"], name: "index_tbl_products_on_mst_status_id"
-    t.index ["tbl_user_id"], name: "index_tbl_products_on_tbl_user_id"
-  end
-
-  create_table "tbl_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
-    t.string "mail", null: false
-    t.string "password", null: false
-    t.integer "phone", null: false
-    t.datetime "birthday", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["birthday"], name: "index_tbl_users_on_birthday"
-    t.index ["first_name"], name: "index_tbl_users_on_first_name"
-    t.index ["first_name_kana"], name: "index_tbl_users_on_first_name_kana"
-    t.index ["last_name"], name: "index_tbl_users_on_last_name"
-    t.index ["last_name_kana"], name: "index_tbl_users_on_last_name_kana"
-    t.index ["mail"], name: "index_tbl_users_on_mail"
-    t.index ["password"], name: "index_tbl_users_on_password"
-    t.index ["phone"], name: "index_tbl_users_on_phone"
   end
 
   add_foreign_key "tbl_product_images", "tbl_products"
@@ -142,5 +119,4 @@ ActiveRecord::Schema.define(version: 2019_07_20_201922) do
   add_foreign_key "tbl_products", "mst_prefectures"
   add_foreign_key "tbl_products", "mst_sizes"
   add_foreign_key "tbl_products", "mst_statuses"
-  add_foreign_key "tbl_products", "tbl_users"
 end
