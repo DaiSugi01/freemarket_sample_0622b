@@ -13,13 +13,9 @@ class TblProduct < ApplicationRecord
   belongs_to :mst_status
 
   # ピックアップアイテムに表示する一覧を取得する
-  def getItems(categoryId)
-    return TblProduct.joins(:mst_major_category, :tbl_product_images).merge(MstMajorCategory.where(id: categoryId)).distinct.order(created_at: "desc").limit(4)
-  end
+  scope :get_items, -> (category_id) { joins(:mst_major_category, :tbl_product_images).merge(MstMajorCategory.where(id: category_id)).distinct.order(created_at: "desc").limit(4) }
 
   # ピックアップブランドに表示する一覧を取得する
-  def getBlands(blandId)
-    return TblProduct.joins(:mst_brand, :tbl_product_images).merge(MstBrand.where(id: blandId)).distinct.order(created_at: "desc").limit(4)
-  end
+  scope :get_blands, -> (bland_id) { joins(:mst_brand, :tbl_product_images).merge(MstBrand.where(id: bland_id)).distinct.order(created_at: "desc").limit(4) }
   
 end

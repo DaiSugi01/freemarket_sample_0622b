@@ -3,21 +3,21 @@ class ProductsController < ApplicationController
   def index
 
     # レディース
-    @ladies_products = TblProduct.new.getItems(1)
+    @ladies_products = TblProduct.get_items(1)
     # メンズ
-    @mens_products = TblProduct.new.getItems(2)
+    @mens_products = TblProduct.get_items(2)
     # ベビー・キッズ
-    @kids_products = TblProduct.new.getItems(3)
+    @kids_products = TblProduct.get_items(3)
     # コスメ・香水・美容
-    @cosmes_products = TblProduct.new.getItems(4)
+    @cosmes_products = TblProduct.get_items(4)
     # シャネル
-    @chanel_products = TblProduct.new.getBlands(1)
+    @chanel_products = TblProduct.get_blands(1)
     # ルイ ヴィトン
-    @vuitton_products = TblProduct.new.getBlands(2)
+    @vuitton_products = TblProduct.get_blands(2)
     # シュプリーム
-    @supreme_products = TblProduct.new.getBlands(3)
+    @supreme_products = TblProduct.get_blands(3)
     # ナイキ
-    @nike_products = TblProduct.new.getBlands(4)
+    @nike_products = TblProduct.get_blands(4)
   end
 
   def new
