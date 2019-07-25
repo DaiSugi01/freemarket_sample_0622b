@@ -8,7 +8,7 @@
 
   %main.exhibit-container__main
 
-    = form_for products_path(@products) do |f|
+    = form_for(@product,url:{controller: 'products', action: 'create' }) do |f|
       -# ここから入力欄
       .exhibit-container__main__sell
         .exhibit-container__main__sell__head
@@ -50,13 +50,13 @@
                 カテゴリー
                 .required
                   必須
-              = f.select :name,["select","select2"],{},{class:'select-box'}
+              -# = f.select :name,["select","select2"],{},{class:'select-box'}
             .exhibit-container__main__sell__content-2__right-group2
               .exhibit-container__main__sell__content-2__right-group2__data-title
                 商品の状態
                 .required
                   必須
-              = f.select :name,["select","select2"],{}, class:'select-box',include_blank: true
+              -# = f.select :name,["select","select2"],{}, class:'select-box',include_blank: true
 
         -# 配送について（配送料の負担/配送元の地域/配送までの日数）
         .exhibit-container__main__sell__content-3
@@ -67,19 +67,19 @@
                 配送料の負担
                 .required
                   必須
-              = f.select :name,["select","select2"],{},{class:'select-box'}
+              -# = f.select :name,["select","select2"],{},{class:'select-box'}
             .exhibit-container__main__sell__content-3__right-group2
               .exhibit-container__main__sell__content-3__right-group2__data-title
                 配送元の地域
                 .required
                   必須
-              = f.select :name,["select","select2"],{},{class:'select-box'}
+              -# = f.select :name,["select","select2"],{},{class:'select-box'}
             .exhibit-container__main__sell__content-3__right-group3
               .exhibit-container__main__sell__content-3__right-group3__data-title
                 配送までの日数
                 .required
                   必須
-              = f.select :name,["select","select2"],{},{class:'select-box'}
+              -# = f.select :name,["select","select2"],{},{class:'select-box'}
 
         .exhibit-container__main__sell__content-4
           .exhibit-container__main__sell__content-4__data-title
@@ -92,7 +92,7 @@
                   必須 
 
               .exhibit-container__main__sell__content-4__right-group4__input-price
-                = f.label :price,"¥", class: 'label-name'
+                = f.label :price, "¥", class: 'label-name'
                 = f.text_field :price, placeholder: "例）300", class: 'price-field'
 
             %li.exhibit-container__main__sell__content-4__right-group4__sales-charge
@@ -120,7 +120,7 @@
               に同意したことになります。
 
           
-          = f.submit "出品する", class: 'send-btn'
+          = f.submit "出品する", class: 'send-btn',url:products_path
           %a.return-btn
             もどる
 
