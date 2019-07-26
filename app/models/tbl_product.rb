@@ -1,5 +1,13 @@
 class TblProduct < ApplicationRecord
 
+  # validates :name,
+  #   presence: true,
+  #   ength: { maximum: 40 } 
+  # validates :description, 
+  #   presence: true,
+  #   length: { maximum: 1000 } 
+  # validates :price, presence: true
+
   has_many :tbl_product_images
   belongs_to :tbl_user
   belongs_to :mst_major_category
