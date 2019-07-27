@@ -27,7 +27,6 @@ class ProductsController < ApplicationController
   
   def create
     @product=TblProduct.create(product_params)
-    binding.pry
     redirect_to root_path
 
       
