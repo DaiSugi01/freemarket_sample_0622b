@@ -12,7 +12,7 @@ class CreateTblProducts < ActiveRecord::Migration[5.2]
       t.references :mst_delivery_method, foreign_key: true
       t.references :mst_prefecture,  null: false, foreign_key: true
       t.references :mst_delivery_time,  null: false, foreign_key: true
-      t.references :mst_status,  null: false, foreign_key: true
+      t.references :mst_status, foreign_key: true
       t.timestamps
     end
   end
