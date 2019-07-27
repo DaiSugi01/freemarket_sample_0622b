@@ -22,15 +22,32 @@ class ProductsController < ApplicationController
 
   def new
     @product = TblProduct.new
+    @product.tbl_product_images.build
   end
   
   def create
-    TblProduct.create(product_params)
-      redirect_to root_path
+    @product=TblProduct.create(product_params)
+    binding.pry
+    redirect_to root_path
+
+      
   end
 
   private
   def product_params
-    params.require(:tbl_product).permit(:name, :description, :price)
+    params.require(:tbl_product).permit(:id,
+                                        :name, 
+                                        :description,
+                                        :price,
+                                        :mst_major_category_id,
+                                        :mst_brand,
+                                        :mst_size,
+                                        :mst_condition_id,
+                                        :mst_burden_id,
+                                        :mst_delivery_method,
+                                        :mst_prefecture_id,
+                                        :mst_delivery_time_id,
+                                        :mst_status,
+                                        tbl_product_images_attributes: [:image])
   end
 end
