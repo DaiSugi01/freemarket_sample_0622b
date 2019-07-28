@@ -1,0 +1,16 @@
+// マイページ画面の共通部分
+
+.container {
+  @include clearfix();
+  margin: 40px auto 0;
+  padding-bottom: 40px;
+  width: 1020px;
+
+  // カード追加ボックス
+  &__right {
+    background-color: #fff;
+    float: right;
+    height: 100%;
+    width: 700px;
+  }
+}
