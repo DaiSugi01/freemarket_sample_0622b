@@ -29,9 +29,40 @@ describe TblAddressController, type: :controller do
   end
 
   describe 'post create' do
-    let(:params) { { tbl_address: attributes_for(:tbl_address) } }
+    let(:tbl_user) { create(:tbl_user) }
 
-    it '' do
+    context 'can save' do
+      let(:params) { attributes_for(:tbl_address).merge( tbl_address: { mst_prefecture_id: 1 }, tbl_user_id: tbl_user.id) }
+      subject {
+        post :create, params: params
+      }
+
+      it 'count up tbl_address' do
+        expect{ subject }.to change(TblAddress, :count).by(1)
+      end
+
+      it 'redirect to top' do
+        subject
+        expect(response).to redirect_to(root_path)
+      end
+
+    end
+
+    context 'can not save' do
+      let(:params) { attributes_for(:tbl_address, address: nil).merge( tbl_address: { mst_prefecture_id: 1 }, tbl_user_id: tbl_user.id) }
+      subject {
+        post :create, params: params
+      }
+
+      it 'does not count up' do
+        expect{ subject }.not_to change(TblAddress, :count)
+      end
+
+      it 'render new' do
+        subject
+        expect(response).to render_template :new
+      end
+
     end
 
   end
