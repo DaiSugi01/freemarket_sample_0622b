@@ -21,7 +21,8 @@ describe TblUser::RegistrationsController, type: :controller do
 
       it 'redirect to address_path' do
         subject
-        expect(response).to redirect_to(new_tbl_user_tbl_address_path)
+        tbl_user = TblUser.last(1)
+        expect(response).to redirect_to(new_tbl_user_tbl_address_path(tbl_user_id: tbl_user[0].id))
       end
     end
   end
