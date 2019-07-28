@@ -1,67 +1,52 @@
 // クレジットカード登録画面
 
-.container {
-  @include clearfix();
-  margin: 40px auto 0;
-  padding-bottom: 40px;
-  width: 1020px;
+.container__right__chapter {
 
-  // カード追加ボックス
-  &__right {
-    background-color: #fff;
-    float: right;
-    height: 100%;
-    width: 700px;
+  &__pay-method {
+    border-bottom: 2px solid #F5F5F5;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 24px;
+    text-align: center;
+  }
 
-    &__chapter {
+  &__inner-box {
+    padding: 64px;
+    text-align: center;
 
-      h2 {
-        border-bottom: 2px solid #F5F5F5;
-        font-size: 24px;
-        font-weight: bold;
-        padding: 8px 24px;
-        text-align: center;
+    &__cards {
+      &__text {
+        font-size: 16px;
+        font-weight: bold;  
       }
+    }
 
-      &__inner-box {
-        padding: 64px;
-        text-align: center;
+    &__add-cards {
+      border-bottom: 2px solid #F5F5F5;
+      padding: 24px 0;
 
-        &__cards {
-          h3 {
-            font-size: 16px;
-            font-weight: bold;  
-          }
+      &__box {
+        background-color: #ea352d;  
+        height: 50px;
+        margin: 0 auto;
+        width: 320px;
+
+        a {
+          @include button();
+          color: #fff;
+          font-size: 14px;
+          line-height: 60px;
         }
+      }
+    }
 
-        &__add-cards {
-          border-bottom: 2px solid #F5F5F5;
-          padding: 24px 0;
+    &__about-payment {
+      margin-top: 40px;
+      text-align: right;
 
-          &__box {
-            background-color: #ea352d;  
-            height: 50px;
-            margin: 0 auto;
-            width: 320px;
-
-            a {
-              @include button();
-              color: #fff;
-              font-size: 14px;
-              line-height: 60px;
-            }
-          }
-        }
-
-        &__about-payment {
-          margin-top: 40px;
-          text-align: right;
-
-          a {
-            i {
-              -webkit-text-stroke: 1px #fff;
-            }
-          }
+      a {
+        i {
+          -webkit-text-stroke: 1px #fff;
         }
       }
     }
