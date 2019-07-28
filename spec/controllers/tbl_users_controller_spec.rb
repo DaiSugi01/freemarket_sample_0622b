@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 # deviseの機能そのものはテストから省略
-describe TblUser::RegistrationsController do
+describe TblUser::RegistrationsController, type: :controller do
   describe 'post#create' do
 
-=begin
     context 'can save' do
-      let(:params) { { resource: attributes_for(:tbl_user), nicknaem: 'てすと'  } }
+      before do
+        request.env['devise.mapping'] = Devise.mappings[:tbl_user]
+      end
+
+      let(:params) { { tbl_user: attributes_for(:tbl_user), nickname: 'テストタロウ' } }
         subject {
           post :create,
           params: params
@@ -18,9 +21,8 @@ describe TblUser::RegistrationsController do
 
       it 'redirect to address_path' do
         subject
-        expect(response).to redirect_to(address_path)
+        expect(response).to redirect_to(new_tbl_user_tbl_address_path)
       end
     end
-=end
   end
 end
