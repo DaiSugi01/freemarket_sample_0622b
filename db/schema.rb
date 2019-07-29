@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_07_26_174044) do
 
   create_table "mst_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_mst_brands_on_name"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_174044) do
   end
 
   create_table "mst_delivery_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_mst_delivery_methods_on_name"
@@ -55,21 +55,21 @@ ActiveRecord::Schema.define(version: 2019_07_26_174044) do
   end
 
   create_table "mst_prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_mst_prefectures_on_name"
   end
 
   create_table "mst_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_mst_sizes_on_name"
   end
 
   create_table "mst_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_mst_statuses_on_name"
