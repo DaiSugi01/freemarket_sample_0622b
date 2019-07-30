@@ -18,4 +18,7 @@ class TblUser < ApplicationRecord
 
   has_one :tbl_profile
   has_many :tbl_addresses
+
+  has_many :tbl_products
+
 end

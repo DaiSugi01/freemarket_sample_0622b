@@ -1,0 +1,16 @@
+// トップページの商品一覧部分
+-# CSS: modules/top-body
+
+%section.pickup-container__items__box__content
+  = link_to root_path, target: "" do
+    %figure.pickup-container__items__box__content__photo
+      = image_tag 'test', alt: '商品画像', class: 'pickup-container__items__box__content__photo__image'
+    .pickup-container__items__box__content__body
+      %h3.pickup-container__items__box__content__body__item-name
+        = product.name
+      .pickup-container__items__box__content__body__item-box
+        .pickup-container__items__box__content__body__item-box__price
+          = "¥ #{product.price}"
+        .pickup-container__items__box__content__body__item-box__likes
+          %i.fa.fa-heart
+          %span 1

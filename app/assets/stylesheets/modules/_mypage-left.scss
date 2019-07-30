@@ -1,0 +1,57 @@
+// マイページの左側コンテンツ
+
+.container__left {
+  float: left;
+  height: 100%;
+  width: 280px;
+
+  &__maypage-nav {
+
+    &__head {
+      color: #333333;
+      font-weight: bold;
+      margin-top: 35px;
+      margin-bottom: 4px;
+    }
+
+    &__lists {
+      background-color: #fff;
+
+      &__list {
+        border-bottom: 1px solid #F5F5F5;
+        min-height: 48px;
+        width: 280px;
+
+        &__link {
+          position: relative;
+          display: block;
+          padding: 13px 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+
+          &__count {
+            background-color: #ea352d;
+            border-radius: 50%;
+            color: #fff;
+            display: block;
+            height: 24px;
+            line-height: 24px;
+            position: absolute;
+            top: 30%;
+            right: 32px;
+            text-align: center;
+            width: 24px
+          }
+
+          i {
+            color: #ccc;
+            position: absolute;
+            right: 16px;
+            top: 40%;
+          }
+        }
+      }
+    }
+  }
+}

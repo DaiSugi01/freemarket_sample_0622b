@@ -1,0 +1,350 @@
+// 商品出品ページ
+
+
+.exhibit-container{
+  background-color:#F5F5F5;
+  width: 100%;
+  
+  &__header{
+    text-align: center;
+    height:128px;
+
+    &__merucari-logo{
+      display: inline-block;
+      margin: 40px 0 0;
+    }
+  }
+  
+  .exhibit-container__main__sell{
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+
+    &__head{
+      background-color: white;
+      border: solid #F5F5F5 0.1px;
+
+      &__page-title{
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 32px 16px;
+        color: #333333;
+      }
+    }
+    &__upload-box{
+      background-color: white;
+      border: solid #F5F5F5 0.1px;
+      width: 620px;
+      padding: 40px;
+      text-align: left;
+
+      &__data-title{
+        @include data-title;
+        font-size: 16px;
+      }
+
+      &__explanation{
+        margin: 8px 0px 16px 0;
+        font-size: 13.5px;
+      }
+
+      &__upload-area{
+        background-color: #F5F5F5;
+        text-align: center;
+        height: 162px;
+        border: dotted 2px #CCCCCC;
+
+        &__text{
+          @include clearfix();
+          display: inline-block;
+          padding: 60px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    &__content-1{
+      background-color: white;
+      border: solid #F5F5F5 0.1px;
+      width: 620px;
+      padding: 40px;
+      text-align: left;
+
+      &__data-title{
+        @include data-title;
+      }
+
+      .name-field{
+        width: 100%;
+        margin: 8px 0 40px 0;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: solid 1px #CCCCCC;
+        box-sizing: border-box;
+        height: 48px;
+      }
+      .name-field:focus{
+        border-color: #0099E8;
+        outline: none; 
+      }
+
+      .description-area{
+        width: 100%;
+        margin: 8px 0 0 0;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: solid 1px #CCCCCC;
+        box-sizing: border-box;
+        max-width: 100%;
+        min-height: 142px;
+      }
+
+      .description-area:focus{
+        border-color: #0099E8;
+        outline: none; 
+      }
+    }
+
+    &__content-2{    
+      background-color: white;
+      border: solid #F5F5F5 0.1px;
+      width: 620px;
+      padding: 40px;
+      text-align: left;
+
+      &__data-title{
+        @include data-title;
+        color: #888888;
+      }
+      
+      &__right-group1{
+        display: inline-block;
+        float: right;
+        width: 400px;
+
+        &__data-title{
+          @include data-title;
+          color: #333333
+        }
+      }
+
+      &__right-group2{
+        display: inline-block;
+        float: right;
+        width: 400px;
+        margin: 40px 0 0; 
+
+        &__data-title{
+          @include data-title;
+          color: #333333
+        }
+      }
+    }
+
+    &__content-3{
+      background-color: white;
+      border: solid #F5F5F5 0.1px;
+      width: 620px;
+      padding: 40px;
+      text-align: left;
+
+      &__data-title{
+        @include data-title;
+        color: #888888;
+      }
+
+      &__right-group1{
+        display: inline-block;
+        float: right;
+        width: 400px;
+
+        &__data-title{
+          @include data-title;
+          color: #333333
+        }
+      }
+
+      &__right-group2{
+        display: inline-block;
+        float: right;
+        width: 400px;
+        margin: 40px 0 0;
+
+        &__data-title{
+          @include data-title;
+          color: #333333
+        }
+      }
+
+      &__right-group3{
+        display: inline-block;
+        float: right;
+        width: 400px;
+        margin: 40px 0 0;
+
+        &__data-title{
+          @include data-title;
+          color: #333333
+        }
+      }
+    }
+
+    &__content-4{
+      background-color: white;
+      border: solid #F5F5F5 0.1px;
+      width: 620px;
+      padding: 40px;
+      text-align: left;
+      display: inline-block;
+
+      &__data-title{
+        @include data-title;
+        color: #888888;
+      }
+
+      &__right-group4{
+        float: right;
+        width: 400px;
+
+        &__price-title{
+          display: inline-block;
+          width: 50%;
+          line-height: 48px;
+          @include data-title;
+          color: #333333;
+        }
+
+        &__input-price{
+          display:inline-block;
+          float: right;
+          line-height: 48px;
+          width: 50%;
+          display: flex;
+          box-sizing: border-box;
+          text-align: right;
+
+          .label-name{
+            width: 100%;
+          }
+
+          .price-field{
+            width: 160px;
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: solid 1px #CCCCCC;
+            text-align: right;
+            box-sizing: border-box;
+            margin: 0 0 0 5%;
+            float: right;
+
+          }
+        }
+
+        &__sales-charge{
+          margin: 24px 0 0;
+          padding: 24px 0;
+          border-top: 1px solid #CCCCCC;
+          display: flex;
+          width: 100%;
+          clear: both;
+
+          &__price{
+            width: 50%;
+            display: inline-flex;
+            float: left;
+            font-size: 14px;
+          }
+          &__result{
+            width: 50%;
+            float: right;
+            display: inline-flex;
+          }
+        }
+
+        &__sales-price{
+          padding: 24px 0;
+          border-top: 1px solid #CCCCCC;
+
+          &__selling-price{
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    &__sell-btn{
+      padding: 40px;
+      border-top: 1px solid #eee;
+      background: white;
+
+      &__attention{
+        font-size: 14px;
+        text-align: left;
+      }
+
+      &__attention--blue{
+        color: #0099E8;
+      }
+
+      .send-btn{
+        width: 100%;
+        margin: 40px 0 0;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        line-height: 48px;
+        font-size: 14px;
+      }
+
+      .return-btn{
+        width: 45%;
+        margin: 24px auto 0;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+        width: 45%;
+        display: block;
+        line-height: 48px;
+        font-size: 14px;
+        
+      }
+    }
+  }
+
+  .exhibit-container__footer{
+    box-sizing: border-box;
+    width: 456px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 40px 0;
+    
+    .guide{
+      width: 100%;
+      text-align: center;
+      display: flex;
+      margin: 0 auto;
+    
+      li{
+        font-size: 12px;
+        width: 100%;
+      }
+    }
+
+    &__mercari-logo{
+        display: block;
+        width: 80px;
+        height: 65px;
+        margin: 40px auto 0;
+        text-align: center;
+    }
+
+    &__comment{
+      text-align: center;
+      margin: 8px 0 0;
+      font-size: 11.5px;
+    }
+  }
+}
