@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :tbl_users do
     resources :tbl_address, only: [:new, :create]
   end
-  root 'items#index'
   root 'products#index'
   resources :products, only:[:new,:create]
   resources :cards, only: [:index]

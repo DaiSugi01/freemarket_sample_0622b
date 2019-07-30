@@ -1,5 +1,4 @@
 class TblAddressController < ApplicationController
-  before_action :tbl_address_params, only: [:create]
   before_action :redirect_to_top, only: [:new]
 
   def new
