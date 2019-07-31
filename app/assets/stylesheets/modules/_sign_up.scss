@@ -1,0 +1,49 @@
+.sign_up {
+  @include form_main();
+
+  &__title {
+    @include form_title();
+  }
+  #error_explanation {
+    margin: 0 30px;
+    color: red;
+    font-size: 15px;
+  }
+  &__field {
+    @include form_field();
+    &__label {
+      @include form_label();
+    }
+    &__input {
+      @include form_input();
+    }
+    .inline {
+      display: inline;
+      width: calc(48% - 15px);
+    }
+    .required {
+      @include required();
+    }
+    .info {
+      font-size: 14px;
+    }
+    a.info {
+      color: #55AEED;
+    }
+    .center {
+      text-align: center;
+    }
+    .privacy {
+      display: inline-block;
+      width: 100%;
+      padding-bottom: 25px;
+      text-align: right;
+    }
+    .button {
+      @include form_button();
+    }
+  }
+  &__field--empty {
+    padding-bottom: 50px;
+  }
+}
