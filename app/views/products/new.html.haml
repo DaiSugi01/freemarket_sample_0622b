@@ -54,13 +54,13 @@
                 カテゴリー
                 .required
                   必須
-              = f.collection_select :mst_major_category_id, MstMajorCategory.all,:id,:name,{:prompt => "---"},{:class=>'select-box'}
+              = f.collection_select :mst_major_category_id, MstMajorCategory.all,:id,:name,{prompt: "---"},{class: 'select-box'}
             .exhibit-container__main__sell__content-2__right-group2
               .exhibit-container__main__sell__content-2__right-group2__data-title
                 商品の状態
                 .required
                   必須
-              = f.collection_select :mst_condition_id, MstCondition.all,:id,:name,{:prompt => "---"},{:class=>'select-box'}
+              = f.collection_select :mst_condition_id, MstCondition.all,:id,:name,{prompt: "---"},{class: 'select-box'}
 
         -# 配送について（配送料の負担/配送元の地域/配送までの日数）
         .exhibit-container__main__sell__content-3
@@ -71,19 +71,19 @@
                 配送料の負担
                 .required
                   必須
-              = f.collection_select :mst_burden_id, MstBurden.all,:id,:name,{:prompt => "---"},{:class=>'select-box'}
+              = f.collection_select :mst_burden_id, MstBurden.all,:id,:name,{prompt: "---"},{class: 'select-box'}
             .exhibit-container__main__sell__content-3__right-group2
               .exhibit-container__main__sell__content-3__right-group2__data-title
                 配送元の地域
                 .required
                   必須
-              = f.collection_select :mst_prefecture_id, MstPrefecture.all,:id,:name,{:prompt => "---"},{:class=>'select-box'}
+              = f.collection_select :mst_prefecture_id, MstPrefecture.all,:id,:name,{prompt: "---"},{class: 'select-box'}
             .exhibit-container__main__sell__content-3__right-group3
               .exhibit-container__main__sell__content-3__right-group3__data-title
                 配送までの日数
                 .required
                   必須
-              = f.collection_select :mst_delivery_time_id, MstDeliveryTime.all,:id,:name,{:prompt => "---"},{:class=>'select-box'}
+              = f.collection_select :mst_delivery_time_id, MstDeliveryTime.all,:id,:name,{prompt: "---"},{class: 'select-box'}
 
         .exhibit-container__main__sell__content-4
           .exhibit-container__main__sell__content-4__data-title
