@@ -81,5 +81,36 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
-    
+
+  describe "DELETE #destroy" do
+    before do
+      @product_detail = create(:tbl_product)
+    end
+
+    context 'log in' do
+      before do
+        login tbl_user
+        get :sell_product_detail, params: { id: @product_detail }
+      end
+
+      it "redirects to sell_product_users_path" do
+        delete :destroy, params: { id: @product_detail }
+        expect(response).to redirect_to(sell_product_users_path)
+      end
+
+      it "delete the tbl_product" do
+        expect{delete :destroy, params: { id: @product_detail }}.to change(TblProduct,:count).by(-1)
+      end
+    end
+
+    context 'not log in' do
+
+      it "redirects to root_path" do
+        get :sell_product_detail, params: { id: @product_detail }
+        delete :destroy, params: { id: @product_detail }
+        expect(response).to redirect_to(root_path)
+      end
+    end
+  end
+
 end
