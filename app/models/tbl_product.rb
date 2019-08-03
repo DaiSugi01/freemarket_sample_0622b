@@ -1,6 +1,6 @@
 class TblProduct < ApplicationRecord
 
-  has_many :tbl_product_images
+  has_many :tbl_product_images, dependent: :delete_all
   belongs_to :tbl_user
   belongs_to :mst_major_category
   belongs_to :mst_brand

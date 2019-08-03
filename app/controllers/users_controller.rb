@@ -14,5 +14,11 @@ class UsersController < ApplicationController
   def sell_product_detail
     @product_detail = TblProduct.find(params[:id])
   end
+
+  def destroy
+    product = TblProduct.find(params[:id])
+    product.destroy
+    redirect_to action: :sell_product
+  end
   
 end
