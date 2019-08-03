@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     collection do
       get 'signout'
       get 'mypage'
+      get 'sell_product'
+    end
+
+    member do
+      get 'sell_product_detail'
     end
   end
+
 end
