@@ -1,0 +1,22 @@
+// 
+.container__right__chapter {
+
+  &__singout_button {
+    height: 51px;
+    padding: 64px;
+
+    &__form {
+      margin: auto;
+      text-align: center;
+      width: 320px;
+
+      .sign-out {
+        color: #FFFFFF;
+        background-color: #EA352D;
+        font-size: 14px;
+        height: 50px;
+        width: 320px;
+      }
+    }
+  }
+}
