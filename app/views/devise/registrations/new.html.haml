@@ -1,0 +1,79 @@
+= render "header"
+.sign_up
+  %h2.sign_up__title 会員情報入力
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .sign_up__field
+      = f.label "ニックネーム", class: "sign_up__field__label"
+      %span.required 必須
+      %br/
+      %input{name: "nickname", class: "sign_up__field__input", autofocus: true, placeholder: "例）メルカリ太郎", required: true}
+    .sign_up__field
+      = f.label "メールアドレス", class: "sign_up__field__label"
+      %span.required 必須
+      %br/
+      = f.email_field :email, class: "sign_up__field__input", autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+    .sign_up__field
+      = f.label "パスワード", class: ".sign_up__field__label"
+      %span.required 必須
+      %br/
+      = f.password_field :password, class: "sign_up__field__input", autocomplete: "new-password", placeholder: "6文字以上" 
+    .sign_up__field
+      = f.label "パスワード（確認）" , class: ".sign_up__field__label"
+      %span.required 必須
+      %br/
+      = f.password_field :password_confirmation, class: "sign_up__field__input", autocomplete: "new-password", placeholder: "6文字以上"
+    .sign_up__field
+      %label.sign_up__field__label 本人確認
+      %p.info 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+    .sign_up__field
+      = f.label "お名前（全角）" 
+      %span.required 必須
+      %br/
+      = f.text_field :last_name, class: "inline sign_up__field__input", placeholder: "例）山田"
+      = f.text_field :first_name, class: "inline sign_up__field__input", placeholder: "例）彩"
+    .sign_up__field
+      = f.label "お名前カナ（全角）", class: ".sign_up__field__label"
+      %span.required 必須
+      %br/
+      = f.text_field :last_name_kana, class: "inline sign_up__field__input", placeholder: "例）ヤマダ"
+      = f.text_field :first_name_kana, class: "inline sign_up__field__input", placeholder: "例）アヤ"
+    .sign_up__field
+      = f.label "生年月日" , class: ".sign_up__field__label"
+      %span.required 必須
+      %br/
+      = f.text_field :birthday, class: "sign_up__field__input", placeholder: "例）1995-09-01"
+      -#
+        %select
+          %option{value: ""} -- 
+          %option{value: "2000"} 2000 
+          %option{value: "2000"} 2001 
+          %option{value: "2000"} 2002
+        %select
+          %option{value: ""} -- 
+          %option{value: "1"} 1 
+          %option{value: "2"} 2 
+          %option{value: "3"} 3 
+        %select
+          %option{value: ""} -- 
+          %option{value: "1"} 1 
+          %option{value: "2"} 2 
+          %option{value: "3"} 3 
+    .sign_up__field
+      = f.label "電話番号", class: ".sign_up__field__label"
+      %span.required 必須
+      %br/
+      = f.text_field :phone, class: "sign_up__field__input", placeholder: "携帯電話の番号を入力"
+    .sign_up__field
+      %p.info ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+    .actions
+    .sign_up__field
+      %p.center.info
+        「次へ進む」のボタンを押すことにより、
+        %a.info{href: "https://www.mercari.com/jp/tos_list/"}利用規約
+        に同意したものとみなします
+    .sign_up__field
+      = f.submit "次へ進む", class: "button"
+    .sign_up__field
+      %a.info.privacy{href: "https://www.mercari.com/jp/help_center/article/423/"}本人情報の取り扱いについて
+= render "footer"

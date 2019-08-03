@@ -25,31 +25,35 @@
               = link_to root_path, class: "header__inner__nav-box__left-box__root" do
                 %span ブランドから探す
       .header__inner__nav-box__right-box
-        %ul.header__inner__nav-box__right-box--member
-          %li.header__inner__nav-box__right-box--member--signup
-            = link_to "新規会員登録", root_path, class: "header__inner__nav-box__right-box--member--signup__link"
-          %li.header__inner__nav-box__right-box--member--signin
-            = link_to "ログイン", root_path, class: "header__inner__nav-box__right-box--member--signin__link"
+        - if tbl_user_signed_in?
+          %ul.header__inner__nav-box__right-box--not-member
+            %li
+              %h2
+                = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+                  %i.fa.fa-heart.fa-lg
+                  %span.header__inner__nav-box__right-box__root__text いいね！一覧
+            %li
+              %h2
+                = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+                  %i.fa.fa-bell.fa-lg
+                  %span.header__inner__nav-box__right-box__root__text お知らせ
+            %li
+              %h2
+                = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+                  %i.fa.fa-check.fa-lg
+                  %span.header__inner__nav-box__right-box__root__text やることリスト
+            %li
+              %h2
+                = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+                  - if current_tbl_user.tbl_profile.icon.blank?
+                    = image_tag "logo-gray", alt: 'user-icon', class: 'header__inner__nav-box__right-box__root__icon'
+                  - else
+                    = image_tag current_tbl_user.tbl_profile.icon, alt: 'user-icon', class: 'header__inner__nav-box__right-box__root__icon'
+                  %span.header__inner__nav-box__right-box__root__text--mypage マイページ
+        - else
+          %ul.header__inner__nav-box__right-box--member
+            %li.header__inner__nav-box__right-box--member--signup
+              = link_to "新規会員登録", new_tbl_user_registration_path, class: "header__inner__nav-box__right-box--member--signup__link"
+            %li.header__inner__nav-box__right-box--member--signin
+              = link_to "ログイン", new_tbl_user_session_path, class: "header__inner__nav-box__right-box--member--signin__link"
 
-        -# 以下、ユーザー管理機能実装後に使用。
-        -# %ul.header__inner__nav-box__right-box--not-member
-        -#   %li
-        -#     %h2
-        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
-        -#         %i.fa.fa-heart.fa-lg
-        -#         %span.header__inner__nav-box__right-box__root__text いいね！一覧
-        -#   %li
-        -#     %h2
-        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
-        -#         %i.fa.fa-bell.fa-lg
-        -#         %span.header__inner__nav-box__right-box__root__text お知らせ
-        -#   %li
-        -#     %h2
-        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
-        -#         %i.fa.fa-check.fa-lg
-        -#         %span.header__inner__nav-box__right-box__root__text やることリスト
-        -#   %li
-        -#     %h2
-        -#       = link_to root_path, class: "header__inner__nav-box__right-box__root" do
-        -#         = image_tag 'test-user-icon.jpeg', alt: 'user-icon', class: 'header__inner__nav-box__right-box__root__icon'
-        -#         %span.header__inner__nav-box__right-box__root__text--mypage マイページ
