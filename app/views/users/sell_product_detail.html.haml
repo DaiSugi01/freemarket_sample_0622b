@@ -1,0 +1,12 @@
+-# 出品商品画面
+.wrapper
+
+  -# へッター
+  = render 'shared/header'
+
+  %main.container
+    = link_to "この商品を削除する", user_path(@product_detail.id), method: :delete
+
+  -# フッター
+  = render 'shared/app-banner'
+  = render 'shared/footer'
