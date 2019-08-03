@@ -53,4 +53,33 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe "GET #sell_product_detail" do
+    before do
+      @product_detail = create(:tbl_product)
+    end
+
+    context 'log in' do
+      before do
+        login tbl_user
+        get :sell_product_detail, params: { id: @product_detail }
+      end
+
+      it "renders sell_product_detail" do
+        expect(response).to render_template :sell_product_detail
+      end
+
+      it "assgin @contents" do
+        expect(assigns(:product_detail)).to eq @product_detail
+      end
+    end
+
+    context 'not log in' do
+
+      it "redirects to root_path" do
+        get :sell_product_detail, params: { id: @product_detail }
+        expect(response).to redirect_to(root_path)
+      end
+    end
+  end
+    
 end
