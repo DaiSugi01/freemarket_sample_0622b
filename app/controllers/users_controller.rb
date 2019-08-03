@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
-  def sign_out
-    
+  def signout
   end
 
   def mypage
