@@ -14,5 +14,5 @@ Rails.application.routes.draw do
       get 'signout'
       get 'mypage'
     end
-
+  end
 end
