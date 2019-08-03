@@ -5,7 +5,21 @@
   = render 'shared/header'
 
   %main.container
-    = link_to "この商品を削除する", product_path(1), method: :delete
+    = render 'shared/mypage-left-contents'
+    .container__right
+      .container__right__chapter
+        %h2.mypage-tab-head 出品した商品
+        %ul.transactions
+          %li.transactions__list
+            %h3.transactions__list__text
+              = link_to "出品中", sell_product_users_path
+          %li.transactions__list--not-active
+            %h3.transactions__list__text
+              = link_to "取引中", sell_product_users_path
+          %li.transactions__list--not-active
+            %h3.transactions__list__text
+              = link_to "売却済み", sell_product_users_path
+        = render partial: "tab-contents", collection: @contents, as: :product    
 
   -# フッター
   = render 'shared/app-banner'
