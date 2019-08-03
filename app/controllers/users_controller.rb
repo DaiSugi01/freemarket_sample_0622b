@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  before_action :redirect_to_top
+  
   def signout
   end
 
@@ -20,5 +21,13 @@ class UsersController < ApplicationController
     product.destroy
     redirect_to action: :sell_product
   end
-  
+
+  private
+
+  def redirect_to_top
+    unless tbl_user_signed_in?
+      redirect_to root_path
+    end
+  end
+
 end
