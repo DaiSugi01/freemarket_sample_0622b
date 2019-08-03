@@ -10,5 +10,9 @@ class UsersController < ApplicationController
     # work 対応状況実装後、条件を変更する。
     @contents = TblProduct.where(tbl_user_id: current_tbl_user.id)
   end
+
+  def sell_product_detail
+    @product_detail = TblProduct.find(params[:id])
+  end
   
 end
