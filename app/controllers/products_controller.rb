@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
 
   def index
-
     # レディース
     @ladies_products = TblProduct.get_items(1)
     # メンズ

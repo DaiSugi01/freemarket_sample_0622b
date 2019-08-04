@@ -1,0 +1,44 @@
+.mypage-tab-head{
+  font-size: 16px;
+  font-weight: bold;
+  height: 72px;
+  padding: 0 16px;
+  line-height: 72px;
+}
+
+.transactions {
+  display: flex;
+  height: 72px;
+  line-height: 72px;
+
+  &__list {
+    width: 233px;
+    text-align: center;
+    border-top: 2px solid red;
+
+    &--not-active {
+      background-color: #EEEEEE;
+      width: 233px;
+      text-align: center;
+      }
+
+    &__text {
+      margin: 0 auto;
+
+      a {
+        color: #000;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.tab-content {
+  .contents-lists {
+    &__list {
+      height: 51px;
+      border-bottom: 1px solid #EEEEEE;
+      width: 668px;
+    }
+  }
+}
