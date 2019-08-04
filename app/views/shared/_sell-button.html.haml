@@ -1,3 +1,8 @@
-= link_to root_path, class: "float-sell-btn" do
-  .sell 出品
-  %i.fa.fa-camera
+- if tbl_user_signed_in?
+  = link_to new_product_path, class: "float-sell-btn" do
+    .sell 出品
+    %i.fa.fa-camera
+- else
+  = link_to new_tbl_user_registration_path, class: "float-sell-btn" do
+    .sell 出品
+    %i.fa.fa-camera
