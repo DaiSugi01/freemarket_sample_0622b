@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_14_084753) do
+ActiveRecord::Schema.define(version: 2019_07_26_174044) do
 
   create_table "mst_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -109,9 +109,10 @@ ActiveRecord::Schema.define(version: 2019_07_14_084753) do
     t.bigint "mst_delivery_method_id"
     t.bigint "mst_prefecture_id", null: false
     t.bigint "mst_delivery_time_id", null: false
-    t.bigint "mst_status_id", null: false
+    t.bigint "mst_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tbl_user_id"
     t.index ["mst_brand_id"], name: "index_tbl_products_on_mst_brand_id"
     t.index ["mst_burden_id"], name: "index_tbl_products_on_mst_burden_id"
     t.index ["mst_condition_id"], name: "index_tbl_products_on_mst_condition_id"
@@ -121,6 +122,7 @@ ActiveRecord::Schema.define(version: 2019_07_14_084753) do
     t.index ["mst_prefecture_id"], name: "index_tbl_products_on_mst_prefecture_id"
     t.index ["mst_size_id"], name: "index_tbl_products_on_mst_size_id"
     t.index ["mst_status_id"], name: "index_tbl_products_on_mst_status_id"
+    t.index ["tbl_user_id"], name: "index_tbl_products_on_tbl_user_id"
   end
 
   create_table "tbl_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -161,4 +163,5 @@ ActiveRecord::Schema.define(version: 2019_07_14_084753) do
   add_foreign_key "tbl_products", "mst_prefectures"
   add_foreign_key "tbl_products", "mst_sizes"
   add_foreign_key "tbl_products", "mst_statuses"
+  add_foreign_key "tbl_products", "tbl_users"
 end
