@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2019_08_03_152404) do
     t.bigint "mst_delivery_method_id"
     t.bigint "mst_prefecture_id", null: false
     t.bigint "mst_delivery_time_id", null: false
-    t.bigint "mst_status_id", null: false
+    t.bigint "mst_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "tbl_user_id"
