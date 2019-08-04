@@ -80,6 +80,8 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :production do
   gem 'unicorn', '5.4.1'
