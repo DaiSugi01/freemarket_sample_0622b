@@ -48,19 +48,28 @@
         margin: 8px 0px 16px 0;
         font-size: 13.5px;
       }
+      
 
       &__upload-area{
+        position: relative;
         background-color: #F5F5F5;
         text-align: center;
-        height: 162px;
+        min-height: 162px;
         border: dotted 2px #CCCCCC;
+        display: block;
+        padding: 60px;
+        font-size: 14px;
+        box-sizing: border-box;
 
-        &__text{
-          @include clearfix();
-          display: inline-block;
-          padding: 60px;
-          font-size: 14px;
+        .file{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;    
+        cursor:pointer;
         }
+
       }
     }
 

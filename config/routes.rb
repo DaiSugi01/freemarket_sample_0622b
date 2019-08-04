@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :tbl_address, only: [:new, :create]
   end
   root 'products#index'
-  resources :products, only:[:new,:create]
+  resources :products, only:[:new, :create]
   resources :cards, only: [:index]
 
   # work ログアウト画面のパス。後ほど変更予定
