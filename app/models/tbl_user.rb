@@ -36,7 +36,6 @@ class TblUser < ApplicationRecord
         tbl_user.phone = ''
         tbl_user.birthday = ''
       end
-
     end
   end
 end
