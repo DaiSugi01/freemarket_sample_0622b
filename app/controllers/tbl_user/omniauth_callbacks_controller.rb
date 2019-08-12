@@ -9,6 +9,7 @@ class TblUser::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = TblUser.find_or_create_for_oauth(request.env['omniauth.auth'])
 
     if @user.persisted?
+      self.current_tbl_user = @user
       redirect_to root_path
     else
       render new_tbl_user_session_path
