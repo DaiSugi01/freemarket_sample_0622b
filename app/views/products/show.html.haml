@@ -1,5 +1,107 @@
-= render 'shared/header'
+.exhibit-container
 
-.exhibit-container__main__product-datail
+  -# 詳細画面ヘッダー
+  .exhibit-container__header
+    = render 'shared/header'
 
-    商品名
+  %main.exhibit-container__product-datail
+    %h1.exhibit-container__product-datail__product-name
+      商品名
+
+    -# 商品詳細メイン部分  
+    .exhibit-container__product-datail__main
+      .exhibit-container__product-datail__main__left
+        .exhibit-container__product-datail__main__left__main-image
+          = image_tag 'top-image2.png',width: '300',height: '300'
+        .exhibit-container__product-datail__main__left__sub-images
+
+      %table.exhibit-container__product-datail__main__right
+        %tbody
+          %tr
+            %th.datail-header 出品者
+            %td.datail-data.link-text
+              = link_to '出品者の名前'
+          %tr
+            %th.datail-header カテゴリー
+            %td.datail-data.link-text
+              = link_to 'カテゴリー名前'
+          %tr 
+            %th.datail-header ブランド          
+            %td.datail-data.link-text
+              = link_to 'ブランド名'
+          %tr 
+            %th.datail-header 商品の状態      
+            %td.datail-data 新品
+          %tr 
+            %th.datail-header 発送料の負担     
+            %td.datail-data 購入者
+          %tr 
+            %th.datail-header 配送の方法    
+            %td.datail-data ゆうパック
+          %tr 
+            %th.datail-header 発送元地域    
+            %td.datail-data.link-text
+              = link_to '北海道'
+
+          %tr 
+            %th.datail-header 発送日の目安   
+            %td.datail-data ２〜３日
+
+    -# 価格/購入ボタン
+    .exhibit-container__product-datail__price
+      %soan.exhibit-container__product-datail__price__main
+        ¥800
+      %span.exhibit-container__product-datail__price__tax
+        (税込)
+      %span.exhibit-container__product-datail__price__fee
+        送料込み
+    .exhibit-container__product-datail__buy-btn
+      = link_to "購入画面に進む",root_path, class:'buy-btn__text'
+
+    -# 商品説明
+    .exhibit-container__product-datail__description
+      %p.exhibit-container__product-datail__description__text
+        商品の説明文
+    
+    -# いいねボタン/報告ボタン
+    .exhibit-container__product-datail__product-btn
+      .exhibit-container__product-datail__product-btn__left
+        %button.good-btn.short-btn
+          %i.fa.fa-heart.fa-lg
+          %span.short-btn__text いいね!
+          %span.short-btn__number 1
+
+        %button.report-btn.short-btn
+          %i.fa.fa-flag.fa-lg
+          %span.short-btn__text 不適切な商品の報告
+          
+      .exhibit-container__product-datail__product-btn__right
+      
+  -# コメント欄 
+  - if tbl_user_signed_in?
+    .exhibit-container__product-datail__comment
+      .exhibit-container__product-datail__comment__container
+        %p.exhibit-container__product-datail__comment__container__text
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = form_for :comment do |f|
+          = f.text_area :comment, class:'comment-box'
+          = f.submit 'コメントする', class: 'comment-btn'
+
+  -# メディアリンク
+  .exhibit-container__product-datail__social-media
+    %ul.exhibit-container__product-datail__social-media__list
+      %li.facebook-link
+        = link_to 'https://www.facebook.com/mercarijp' ,class:'icon-link' do
+          %i.fa.fa-facebook-square.facebook-icon
+      %li.twitter-link
+        = link_to 'https://twitter.com/mercari_jp', class:'icon-link' do
+          %i.fa.fa-twitter.twitter-icon
+      %li.pinterest-link
+        = link_to 'https://www.pinterest.jp/', class:'icon-link' do
+          %i.fa.fa-pinterest.pinterest-icon
+  
+  .exhibit-container__product-datail__relation-products
+
+  -# フッター部分
+  = render 'shared/app-banner'
+  = render 'shared/footer'
