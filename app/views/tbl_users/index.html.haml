@@ -9,5 +9,5 @@
     = link_to "facebookで登録する", tbl_user_facebook_omniauth_authorize_path, class: "sign_up__field__link facebook"
   .sign_up__field
     %i.fa.fa-google.fa-lg.fa-sign_up_google
-    = link_to "Googleで登録する", "", class: "sign_up__field__link google"
+    = link_to "Googleで登録する", tbl_user_omniauth_authorize_path(:google), class: "sign_up__field__link google"
 = render "devise/registrations/footer"

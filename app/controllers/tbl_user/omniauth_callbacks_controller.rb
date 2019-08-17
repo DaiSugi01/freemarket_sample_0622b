@@ -4,6 +4,10 @@ class TblUser::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback
   end
 
+  def google
+    callback
+  end
+
   private
   def callback
     @user = TblUser.find_or_initialize_for_oauth(request.env['omniauth.auth'])
