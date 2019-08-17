@@ -9,7 +9,7 @@
       = link_to "facebookでログイン", tbl_user_facebook_omniauth_authorize_path, class: "sign_in__field__link facebook"
     .sign_in__field
       %i.fa.fa-google.fa-lg.fa-sign_in_google
-      = link_to "Googleでログイン", "", class: "sign_in__field__link google"
+      = link_to "Googleでログイン", tbl_user_google_omniauth_authorize_path, class: "sign_in__field__link google"
     .sign_in__field
       = f.email_field :email, class:"sign_in__field__input", autofocus: true, autocomplete: "email", placeholder: "メールアドレス"
     .sign_in__field
