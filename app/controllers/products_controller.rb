@@ -25,8 +25,11 @@ class ProductsController < ApplicationController
   end
   
   def create
-    @product=TblProduct.create(product_params)
+    @product=TblProduct.new(product_params)
+    @product.tbl_user_id = current_tbl_user.id
+    @product.save
     redirect_to root_path
+    binding.pry
 
       
   end
@@ -46,6 +49,7 @@ class ProductsController < ApplicationController
                                         :mst_prefecture_id,
                                         :mst_delivery_time_id,
                                         :mst_status,
+                                        :tbl_user_id,
                                         tbl_product_images_attributes: [:image])
   end
 end
