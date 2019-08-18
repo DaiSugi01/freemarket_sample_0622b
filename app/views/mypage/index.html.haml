@@ -6,6 +6,64 @@
 
   %main.container
     = render 'shared/mypage-left-contents'
+    .container__right
+      .container__right__elem
+        %a.container__right__profile{ href: '' }
+          - if current_tbl_user.tbl_profile.icon.blank?
+            = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__image'
+          - else
+            = image_tag current_tbl_user.tbl_profile.icon, alt: 'user-icon', class: 'container__right__profile__image'
+          %p.container__right__profile__nickname uki
+          %p.container__right__profile__info 評価  25  出品数  27
+
+        %ul.transactions
+          %li.transactions__list
+            %h3.transactions__list__text お知らせ
+          %li.transactions__list--not-active
+            %h3.transactions__list__text やることリスト
+
+        %ul.container__right__list
+          - for i in 1..5
+            %li.container__right__list__elem
+              = image_tag 'mercari_icon', alt: 'mercari_icon', class: 'container__right__list__elem__icon'
+              .container__right__list__elem__text
+                %p.container__right__list__elem__text__message 支払い方法を確認してください
+                %p.container__right__list__elem__text__send_at 2時間前
+          %li.container__right__list__elem
+            = link_to '一覧を見る', '', class: 'container__right__list__elem__link'
+
+        %ul.container__right__list.not_active
+          - for i in 1..5
+            %li.container__right__list__elem
+              = image_tag 'mercari_icon', alt: 'mercari_icon', class: 'container__right__list__elem__icon'
+              .container__right__list__elem__text
+                %p.container__right__list__elem__text__message 発送してください
+                %p.container__right__list__elem__text__send_at 二時間前
+          %li.container__right__list__elem
+            = link_to '一覧を見る', '', class: 'container__right__list__elem__link'
+
+      .container__right__elem
+        %h2.mypage-tab-head 購入した商品
+        %ul.transactions
+          %li.transactions__list
+            %h3.transactions__list__text 取引中
+          %li.transactions__list--not-active
+            %h3.transactions__list__text 過去の取引
+
+        %ul.container__right__list
+          %li.container__right__list__elem__nothing 取引中の商品がありません
+
+        %ul.container__right__list.not_active
+          - for i in 1..5
+            %li.container__right__list__elem
+              = image_tag 'mercari_icon', alt: '', class: 'container__right__list__elem__icon'
+              .container__right__list__elem__text
+                %p.container__right__elem__text__message 「HDMIケーブル」を購入しました。取引が完了しました。
+                %p.container__right__elem__text__message 取引完了
+          %li.container__right__list__elem
+            = link_to '一覧を見る', '', class: 'container__right__list__elem__link'
+
+  = render 'shared/sell-button'
 
   -# フッター
   = render 'shared/app-banner'
