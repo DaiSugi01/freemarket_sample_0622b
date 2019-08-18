@@ -44,7 +44,7 @@
                   %span.header__inner__nav-box__right-box__root__text やることリスト
             %li
               %h2
-                = link_to root_path, class: "header__inner__nav-box__right-box__root" do
+                = link_to mypage_index_path, class: "header__inner__nav-box__right-box__root" do
                   - if current_tbl_user.tbl_profile.icon.blank?
                     = image_tag "logo-gray", alt: 'user-icon', class: 'header__inner__nav-box__right-box__root__icon'
                   - else
