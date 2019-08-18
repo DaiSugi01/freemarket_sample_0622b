@@ -11,7 +11,7 @@
     = render 'shared/mypage-left-contents'
     .container__right
       .container__right__chapter
-        = form_with url: signout_path, class:  "container__right__chapter__singout_button" do |f|
+        = form_with url: signout_users_path, class:  "container__right__chapter__singout_button" do |f|
           .container__right__chapter__singout_button__form
             = f.submit "ログアウト", class: "sign-out"
 

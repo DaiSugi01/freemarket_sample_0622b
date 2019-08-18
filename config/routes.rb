@@ -7,11 +7,20 @@ Rails.application.routes.draw do
     resources :tbl_address, only: [:new, :create]
   end
   root 'products#index'
-  resources :products, only:[:new, :create]
+  resources :products, only:[:new,:create, :destroy]
   resources :cards, only: [:index]
   resources :mypage, only: [:index]
 
-  # work ログアウト画面のパス。後ほど変更予定
-  get :signout, to: 'users#sign_out'
+  resources :users do
+    collection do
+      get 'signout'
+      get 'mypage'
+      get 'sell_product'
+    end
+
+    member do
+      get 'sell_product_detail'
+    end
+  end
 
 end

@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_141024) do
     t.bigint "mst_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tbl_user_id"
     t.index ["mst_brand_id"], name: "index_tbl_products_on_mst_brand_id"
     t.index ["mst_burden_id"], name: "index_tbl_products_on_mst_burden_id"
     t.index ["mst_condition_id"], name: "index_tbl_products_on_mst_condition_id"
@@ -121,6 +122,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_141024) do
     t.index ["mst_prefecture_id"], name: "index_tbl_products_on_mst_prefecture_id"
     t.index ["mst_size_id"], name: "index_tbl_products_on_mst_size_id"
     t.index ["mst_status_id"], name: "index_tbl_products_on_mst_status_id"
+    t.index ["tbl_user_id"], name: "index_tbl_products_on_tbl_user_id"
   end
 
   create_table "tbl_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -163,4 +165,5 @@ ActiveRecord::Schema.define(version: 2019_08_08_141024) do
   add_foreign_key "tbl_products", "mst_prefectures"
   add_foreign_key "tbl_products", "mst_sizes"
   add_foreign_key "tbl_products", "mst_statuses"
+  add_foreign_key "tbl_products", "tbl_users"
 end

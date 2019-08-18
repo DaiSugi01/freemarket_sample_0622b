@@ -1,5 +1,7 @@
 class TblProduct < ApplicationRecord
 
+  has_many :tbl_product_images, dependent: :delete_all
+  belongs_to :tbl_user
   validates :name,
     presence: true,
     length: { maximum: 40 } 
