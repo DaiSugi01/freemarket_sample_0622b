@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :products, only:[:new,:create, :destroy]
   resources :cards, only: [:index]
-  resources :mypage, only: [:index]
 
-  resources :users do
+  resources :mypage do
     collection do
+      get 'index'
       get 'signout'
       get 'mypage'
       get 'sell_product'
