@@ -1,10 +1,10 @@
 class MypageController < ApplicationController
   before_action :redirect_to_top
 
-  def signout
+  def index
   end
 
-  def mypage
+  def signout
   end
 
   def sell_product

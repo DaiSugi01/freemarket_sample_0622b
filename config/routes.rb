@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     collection do
       get 'index'
       get 'signout'
-      get 'mypage'
       get 'sell_product'
     end
 
