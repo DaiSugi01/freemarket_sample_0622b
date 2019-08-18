@@ -11,6 +11,46 @@
   }
   &__field {
     @include form_field();
+    &__link {
+      display: inline-block;
+      width: 100%;
+      line-height: 50px;
+      text-align: center;
+      font-size: 15px;
+    }
+    .fa-sign_up_email {
+      display: inline;
+      position: relative;
+      top: 35px;
+      left: 15px;
+      color: white;
+    }
+    .email {
+      background-color: red;
+      color: white;
+    }
+    .fa-sign_up_facebook {
+      display: inline;
+      position: relative;
+      top: 35px;
+      left: 15px;
+      color: white;
+    }
+    .facebook {
+      background-color: #385185;
+      color: white;
+    }
+    .fa-sign_up_google {
+      display: inline;
+      position: relative;
+      top: 35px;
+      left: 15px;
+    }
+    .google {
+      margin-bottom: 60px;
+      border: solid 1px #979797;
+      color: #333333;
+    }
     &__label {
       @include form_label();
     }

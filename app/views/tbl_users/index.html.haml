@@ -1,0 +1,13 @@
+= render "devise/sessions/header"
+.sign_up
+  %h2.sign_up__title 会員情報入力
+  .sign_up__field
+    %i.fa.fa-envelope.fa-lg.fa-sign_up_email
+    = link_to "メールアドレスで登録する", new_tbl_user_registration_path, class: "sign_up__field__link email"
+  .sign_up__field
+    %i.fa.fa-facebook-square.fa-lg.fa-sign_up_facebook
+    = link_to "facebookで登録する", tbl_user_facebook_omniauth_authorize_path, class: "sign_up__field__link facebook"
+  .sign_up__field
+    %i.fa.fa-google.fa-lg.fa-sign_up_google
+    = link_to "Googleで登録する", tbl_user_google_omniauth_authorize_path, class: "sign_up__field__link google"
+= render "devise/registrations/footer"
