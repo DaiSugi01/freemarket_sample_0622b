@@ -21,17 +21,21 @@ class ProductsController < ApplicationController
 
   def new
     @product = TblProduct.new
-    @product.tbl_product_images.build
+    @image = @product.tbl_product_images.build
   end
   
   def create
-    @product=TblProduct.new(product_params)
+    @product = TblProduct.new(product_params)
     @product.tbl_user_id = current_tbl_user.id
-    @product.save
-    redirect_to root_path
-    binding.pry
 
-      
+    if @product.save
+      params[:tbl_product_images]['image'].first(10).each do |a|
+        @image = @product.tbl_product_images.create!(image: a)
+      end
+      redirect_to :root
+    else
+      redirect_to action: 'new'
+    end
   end
 
   private
@@ -50,6 +54,7 @@ class ProductsController < ApplicationController
                                         :mst_delivery_time_id,
                                         :mst_status,
                                         :tbl_user_id,
-                                        tbl_product_images_attributes: [:image])
+                                        tbl_product_images_attributes: [:image]
+                                        )
   end
 end
