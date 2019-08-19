@@ -2,7 +2,8 @@ class TblUser < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:facebook, :google]
 
   validates :last_name, presence: true
   validates :first_name, presence: true
@@ -21,4 +22,13 @@ class TblUser < ApplicationRecord
 
   has_many :tbl_products
 
+  class << self
+    def find_or_initialize_for_oauth(auth)
+      find_or_initialize_by(email: auth.info.email) do |tbl_user|
+        tbl_user.provider = auth.provider
+        tbl_user.uid = auth.uid
+        tbl_user.email = auth.info.email
+      end
+    end
+  end
 end

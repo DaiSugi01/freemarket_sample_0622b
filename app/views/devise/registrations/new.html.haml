@@ -1,18 +1,25 @@
 = render "header"
 .sign_up
   %h2.sign_up__title 会員情報入力
+  - auth_provider = session[:auth].present? ?  session[:auth]['provider'] : ''
+  - auth_uid = session[:auth].present? ?  session[:auth]['uid'] : ''
+  - auth_name = session[:auth].present? ?  session[:auth]['info']['name'] : ''
+  - auth_email = session[:auth].present? ?  session[:auth]['info']['email'] : ''
+  - session.delete(:auth)
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = render "devise/shared/error_messages", resource: resource
     .sign_up__field
       = f.label "ニックネーム", class: "sign_up__field__label"
       %span.required 必須
       %br/
-      %input{name: "nickname", class: "sign_up__field__input", autofocus: true, placeholder: "例）メルカリ太郎", required: true}
+      %input{name: "nickname", class: "sign_up__field__input", value: auth_name, autofocus: true, placeholder: "例）メルカリ太郎", required: true}
+      = f.hidden_field :provider, value: auth_provider
+      = f.hidden_field :uid, value: auth_uid
     .sign_up__field
       = f.label "メールアドレス", class: "sign_up__field__label"
       %span.required 必須
       %br/
-      = f.email_field :email, class: "sign_up__field__input", autocomplete: "email", placeholder: "PC・携帯どちらでも可"
+      = f.email_field :email, class: "sign_up__field__input", value: auth_email, autocomplete: "email", placeholder: "PC・携帯どちらでも可"
     .sign_up__field
       = f.label "パスワード", class: ".sign_up__field__label"
       %span.required 必須
