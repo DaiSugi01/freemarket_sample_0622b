@@ -17,12 +17,12 @@
           %p.container__right__profile__info 評価  25  出品数  27
 
         %ul.transactions
-          %li.transactions__list
+          %li.transactions__list{  data: { type: 'notice' } }
             %h3.transactions__list__text お知らせ
-          %li.transactions__list--not-active
+          %li.transactions__list--not-active{  data: { type: 'todo' } }
             %h3.transactions__list__text やることリスト
 
-        %ul.container__right__list
+        %ul.container__right__list{  data: { type: 'notice' } }
           - for i in 1..5
             %li.container__right__list__elem
               = image_tag 'mercari_icon', alt: 'mercari_icon', class: 'container__right__list__elem__icon'
@@ -32,7 +32,7 @@
           %li.container__right__list__elem
             = link_to '一覧を見る', '', class: 'container__right__list__elem__link'
 
-        %ul.container__right__list.not_active
+        %ul.container__right__list.not_active.not_active{  data: { type: 'todo' } }
           - for i in 1..5
             %li.container__right__list__elem
               = image_tag 'mercari_icon', alt: 'mercari_icon', class: 'container__right__list__elem__icon'
@@ -45,15 +45,15 @@
       .container__right__elem
         %h2.mypage-tab-head 購入した商品
         %ul.transactions
-          %li.transactions__list
+          %li.transactions__list{  data: { type: 'trade_now' } }
             %h3.transactions__list__text 取引中
-          %li.transactions__list--not-active
+          %li.transactions__list--not-active{  data: { type: 'trade_past' } }
             %h3.transactions__list__text 過去の取引
 
-        %ul.container__right__list
+        %ul.container__right__list{  data: { type: 'trade_now' } }
           %li.container__right__list__elem__nothing 取引中の商品がありません
 
-        %ul.container__right__list.not_active
+        %ul.container__right__list.not_active{  data: { type: 'trade_past' } }
           - for i in 1..5
             %li.container__right__list__elem
               = image_tag 'mercari_icon', alt: '', class: 'container__right__list__elem__icon'
