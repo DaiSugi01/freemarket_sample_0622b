@@ -1,21 +1,26 @@
 class MypageController < ApplicationController
   before_action :redirect_to_top
 
+  # マイページトップ
   def index
   end
 
+  # ログアウト
   def signout
   end
 
+  # 出品した商品
   def sell_product
     # work 対応状況実装後、条件を変更する。
     @contents = TblProduct.where(tbl_user_id: current_tbl_user.id)
   end
 
+  # 出品した商品　詳細
   def sell_product_detail
     @product_detail = TblProduct.find(params[:id])
   end
 
+  # 商品削除
   def destroy
     product = TblProduct.find(params[:id])
     product.destroy
