@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
       end
       redirect_to :root
     else
-      redirect_to action: 'new'
+      render action: 'new'
     end
   end
 
