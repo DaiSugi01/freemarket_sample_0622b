@@ -1,0 +1,2 @@
+class TblCard < ApplicationRecord
+end
