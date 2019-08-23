@@ -80,6 +80,7 @@ gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog-aws'
+gem 'payjp'
 
 group :production do
   gem 'unicorn', '5.4.1'
