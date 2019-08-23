@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   end
   root 'products#index'
   resources :products, only:[:new,:create, :destroy]
-  resources :cards, only: [:index]
+  resources :cards, only: [:index,:new,:create]
+  post 'cards/pay' => 'cards#pay'
 
   resources :users do
     collection do
