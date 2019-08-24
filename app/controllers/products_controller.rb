@@ -18,16 +18,15 @@ class ProductsController < ApplicationController
     # ナイキ
     @nike_products = TblProduct.get_blands(4)
     
-    @product = TblProduct.all.includes(:tbl_product_images)
   end
 
   def new
     @product = TblProduct.new
-    @image = @product.tbl_product_images.build
+    @image = @product.tbl_product_images.new
   end
   
   def create
-    @product = TblProduct.new(product_params)
+    @product = TblProduct.create(product_params)
     @product.tbl_user_id = current_tbl_user.id
 
     if @product.save
