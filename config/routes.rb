@@ -11,10 +11,10 @@ Rails.application.routes.draw do
   resources :products, only:[:new,:create, :show, :destroy]
   resources :cards, only: [:index]
 
-  resources :users do
+  resources :mypage do
     collection do
+      get 'index'
       get 'signout'
-      get 'mypage'
       get 'sell_product'
     end
 
