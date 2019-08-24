@@ -12,9 +12,12 @@
     .exhibit-container__product-datail__main
       .exhibit-container__product-datail__main__left
         .exhibit-container__product-datail__main__left__main-image
-          - @image.each.first(1) do |p|
-            = image_tag p.url,class: 'image-size'
+          = image_tag @image[0].image.url, class: 'main-image-size'
         .exhibit-container__product-datail__main__left__sub-images
+          - 10.times do |i|
+            = image_tag @image[i].image.url, alt:'商品画像'+i.to_s,class: 'sub-image-size' if @image[i].present?
+
+
 
       %table.exhibit-container__product-datail__main__right
         %tbody
@@ -32,7 +35,7 @@
               -# = link_to @product.mst_brand.name
           %tr 
             %th.datail-header 商品の状態      
-            %td.datail-data 
+            %td.datail-data
               = @product.mst_condition.name
           %tr 
             %th.datail-header 発送料の負担     
@@ -66,7 +69,7 @@
     -# 商品説明
     .exhibit-container__product-datail__description
       %p.exhibit-container__product-datail__description__text
-        商品の説明文
+        = @product.description
     
     -# いいねボタン/報告ボタン
     .exhibit-container__product-datail__product-btn
