@@ -4,7 +4,7 @@
 %section.pickup-container__items__box__content
   = link_to product_path(product.id),target: "" do
     %figure.pickup-container__items__box__content__photo
-      = image_tag 'test', alt: '商品画像', class: 'pickup-container__items__box__content__photo__image'
+      = image_tag product.tbl_product_images[0].image.url, alt: '商品画像', class: 'pickup-container__items__box__content__photo__image'
     .pickup-container__items__box__content__body
       %h3.pickup-container__items__box__content__body__item-name
         = product.name
