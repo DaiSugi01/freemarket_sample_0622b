@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     resources :tbl_address, only: [:new, :create]
   end
   root 'products#index'
-  resources :products, only:[:new,:create, :destroy]
+
+  resources :products, only:[:new,:create, :show, :destroy]
   resources :cards, only: [:index]
 
   resources :mypage do
