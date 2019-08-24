@@ -1,1 +1,29 @@
-aho
+-# プロフィール画面
+.wrapper
+
+  -# ヘッダー
+  = render 'shared/header'
+
+  -# 出品ボタン
+  = render 'shared/sell-button'
+
+  %main.container
+    = render 'shared/mypage-left-contents'
+    .container__right
+      %h2.container__right__title プロフィール
+      = form_for @profile, url: tbl_profile_path(@profile), method: :patch do |f|
+        .container__right__profile
+          - if @profile.icon.blank?
+            = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__image'
+          - else
+            = image_tag @profle.icon, alt: 'user-icon', class: 'container__right__profile__image'
+          = f.file_field :icon, style: 'display: none;'
+          = f.text_field :nickname
+        .container__right__description
+          = f.text_area :description
+        .container__right__submit
+          = f.submit '変更する'
+
+  -# フッター
+  = render 'shared/app-banner'
+  = render 'shared/footer'
