@@ -12,13 +12,16 @@
     .container__right
       %section.credit-content
         %h2.credit-content__head クレジットカード情報入力
-        = form_with(url:{controller: 'cards', action: 'create' }) do |f|
+
+        = form_with(url:{controller: 'cards', action: 'create' }, class: "card-form") do |f|
           .card-form__box
+            - flash.each do |key, value|
+              = content_tag(:p, value, class: "card-form__box__" + key)
+
             .card-form__box__num-group
               = f.label :number, "カード番号", class: "card-form__box--label"
               %span.card-form__box--require 必須
               = f.text_field :number, maxlength: "19", placeholder: "半角数字のみ", id: "payment_card_no",class:"card-form__box--input"
-              %ul#card-no-error-wrapper.card-form__box__num-group--error
               %ul.card-form__box__num-group-card
                 %li
                   = image_tag("visa", width: '49', height: '17',class: "card-brand--first")

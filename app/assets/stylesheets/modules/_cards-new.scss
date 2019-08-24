@@ -1,6 +1,8 @@
 // クレジットカード登録画面
 
 .credit-content {
+  height: 100%;
+  padding-bottom: 40px;
 
   form {
     padding-bottom: 40px;
@@ -15,14 +17,20 @@
   }
 
   .card-form {
-    height: 400px;
-    padding: 38px;
+    height: 100%;
+    padding: 40px 64px;
 
     &__box {
       height: 407px;
       margin: 0 auto;
       width: 343px;
 
+      &__alert {
+        color: #ea352d;
+        font-size: 14px;
+        text-align: center;
+      }
+    
       &__num-group {
         margin-top: 40px;
 
@@ -112,6 +120,7 @@
       &__btn-add {
         @include form_button();
         margin-top: 30px;
+        font-size: 14px;
       }
 
       &--label {
