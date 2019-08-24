@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   resources :products, only:[:new,:create, :show, :destroy]
   resources :cards, only: [:index]
-  resources :tbl_profile, only: [:show, :update]
 
   resources :mypage do
     collection do
