@@ -17,6 +17,8 @@ class ProductsController < ApplicationController
     @supreme_products = TblProduct.get_blands(3)
     # ナイキ
     @nike_products = TblProduct.get_blands(4)
+    
+    @product = TblProduct.all.includes(:tbl_product_images)
   end
 
   def new
@@ -27,8 +29,11 @@ class ProductsController < ApplicationController
   def create
     @product=TblProduct.create(product_params)
     redirect_to root_path
+  end
 
-      
+  def show
+    @product = TblProduct.find(params[:id])
+    @image = @product.tbl_product_images
   end
 
   private

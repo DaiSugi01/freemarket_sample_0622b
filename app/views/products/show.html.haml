@@ -6,13 +6,14 @@
 
   %main.exhibit-container__product-datail
     %h1.exhibit-container__product-datail__product-name
-      商品名
+      = @product.name
 
     -# 商品詳細メイン部分  
     .exhibit-container__product-datail__main
       .exhibit-container__product-datail__main__left
         .exhibit-container__product-datail__main__left__main-image
-          = image_tag 'top-image2.png',class: 'image-size'
+          - @image.each.first(1) do |p|
+            = image_tag p.url,class: 'image-size'
         .exhibit-container__product-datail__main__left__sub-images
 
       %table.exhibit-container__product-datail__main__right
@@ -20,37 +21,41 @@
           %tr
             %th.datail-header 出品者
             %td.datail-data.link-text
-              = link_to '出品者の名前'
+              = link_to @product.tbl_user.tbl_profile.nickname
           %tr
             %th.datail-header カテゴリー
             %td.datail-data.link-text
-              = link_to 'カテゴリー名前'
+              = link_to @product.mst_major_category.name
           %tr 
             %th.datail-header ブランド          
             %td.datail-data.link-text
-              = link_to 'ブランド名'
+              -# = link_to @product.mst_brand.name
           %tr 
             %th.datail-header 商品の状態      
-            %td.datail-data 新品
+            %td.datail-data 
+              = @product.mst_condition.name
           %tr 
             %th.datail-header 発送料の負担     
-            %td.datail-data 購入者
+            %td.datail-data 
+              = @product.mst_burden.name
           %tr 
             %th.datail-header 配送の方法    
-            %td.datail-data ゆうパック
+            %td.datail-data 
+              -# = @product.mst_delivery_method.name
           %tr 
             %th.datail-header 発送元地域    
             %td.datail-data.link-text
-              = link_to '北海道'
+              = link_to @product.mst_prefecture.name
 
           %tr 
             %th.datail-header 発送日の目安   
-            %td.datail-data ２〜３日
+            %td.datail-data
+              = @product.mst_delivery_time.name
 
     -# 価格/購入ボタン
     .exhibit-container__product-datail__price
       %soan.exhibit-container__product-datail__price__main
-        ¥800
+        = "¥#{@product.price}" 
       %span.exhibit-container__product-datail__price__tax
         (税込)
       %span.exhibit-container__product-datail__price__fee
