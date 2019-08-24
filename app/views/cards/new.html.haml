@@ -1,0 +1,65 @@
+-# クレジットカード登録画面
+.wrapper
+
+  -# ヘッダー
+  = render 'shared/header'
+
+  -# 出品ボタン
+  = render 'shared/sell-button'
+
+  %main.container
+    = render 'shared/mypage-left-contents'
+    .container__right
+      %section.credit-content
+        %h2.credit-content__head クレジットカード情報入力
+        = form_with(url:{controller: 'cards', action: 'create' }) do |f|
+          .card-form__box
+            .card-form__box__num-group
+              = f.label :number, "カード番号", class: "card-form__box--label"
+              %span.card-form__box--require 必須
+              = f.text_field :number, maxlength: "19", placeholder: "半角数字のみ", id: "payment_card_no",class:"card-form__box--input"
+              %ul#card-no-error-wrapper.card-form__box__num-group--error
+              %ul.card-form__box__num-group-card
+                %li
+                  = image_tag("visa", width: '49', height: '17',class: "card-brand--first")
+                %li
+                  = image_tag("master-card", width: '28', height: '20',class: "card-brand")
+                %li
+                  = image_tag("saison-card", width: '30', height: '20',class: "card-brand")
+                %li
+                  = image_tag("jcb", width: '32', height: '20',class: "card-brand")
+                %li
+                  = image_tag("american_express", width: '21', height: '20',class: "card-brand")
+                %li
+                  = image_tag("dinersclub", width: '30', height: '20',class: "card-brand")
+                %li
+                  = image_tag("discover", width: '30', height: '19',class: "card-brand")
+            .card-form__box__expire
+              = f.label "有効期限", class: "card-form__box--label"
+              %span.card-form__box--require 必須
+              %br
+              .card-form__box__expire__flex-box
+                .card-form__box__expire__flex-box__wrap
+                  = f.select :valid_month,["01","02","03","04","05","06","07","08","09","10","11","12"],{}, {id: "card_expire_mm",class: "card-form__box__expire__flex-box__wrap--payment_card_expire"}
+                  %i.fa.fa-angle-down
+                  %span 月
+                %ul#expire-mm-error-wrapper.card-form__box--error
+                .card-form__box__expire__flex-box__wrap
+                  = f.select :valid_year,[["19","2019"],["20","2020"],["21","2021"],["22","2022"],["23","2023"],["24","2024"],["25","2025"],["26","2026"],["27","2027"],["28","2028"],["29","2029"]],{}, {id: "card_expire_yy",class: "card-form__box__expire__flex-box__wrap--payment_card_expire"}
+                  %i.fa.fa-angle-down
+                  %span 年
+                %ul#expire-yy-error-wrapper.card-form__box--error
+            .card-form__box__security
+              = f.label :cvc, "セキュリティコード", {class: "card-form__box--label"}
+              %span.card-form__box--require 必須
+              = f.text_field :cvc, id: "cvc_code", class: "card-form__box--input", placeholder: "カード背面4桁もしくは3桁の番号"
+              %ul#security-code-error-wrapper.card-form__box--error
+              .card-form__box__security--seqcode
+                .card-form__box__security--seqcode--text
+                  %i.fa.fa-question-circle
+                  カード裏面の番号とは？
+            %p#primary-error.has-error-text
+            = f.submit "追加する", id: "submit-button", class: "card-form__box__btn-add"
+  -# フッター
+  = render 'shared/app-banner'
+  = render 'shared/footer'
