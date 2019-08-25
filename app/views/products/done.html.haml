@@ -18,12 +18,15 @@
       %section.buy-content
         .buy-content--inner
           %h3
-            = image_tag("clock", width: '36', height: '36', class: "clock-icon")
-          %p まんがでわかるドラッカーのリーダーシップ論
+            = image_tag @image.image.url, width: '36', height: '36', class: "clock-icon"
+          %p 
+            = @product.name
 
       %section.buy-content--next
         .buy-content--next--inner
-          %span.buy-content--next--inner--price ¥370
+          %span.buy-content--next--inner--price
+            = "¥"
+            = @product.price
           %span.buy-content--next--inner--text 送料込み
 
       %section.buy-content--next
