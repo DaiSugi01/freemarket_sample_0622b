@@ -14,15 +14,15 @@
       = form_for @profile, url: tbl_profile_path(@profile.id), method: :patch do |f|
         .container__right__profile
           - if @profile.icon.blank?
-            = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__image'
+            = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__icon'
           - else
-            = image_tag @profle.icon, alt: 'user-icon', class: 'container__right__profile__image'
-          = f.file_field :icon, style: 'display: none;'
-          = f.text_field :nickname
-        .container__right__description
-          = f.text_area :description
-        .container__right__submit
-          = f.submit '変更する'
+            = image_tag @profle.icon, alt: 'user-icon', class: 'container__right__profile__icon'
+          = f.file_field :icon, class: 'container__right__profile__file not_display'
+          = f.text_field :nickname, class: 'container__right__profile__input'
+        %div
+          = f.text_area :description, class: 'container__right__description'
+        %div
+          = f.submit '変更する', class: 'container__right__submit'
 
   -# フッター
   = render 'shared/app-banner'
