@@ -31,6 +31,9 @@ class ProductsController < ApplicationController
       
   end
 
+  def done
+  end
+
   private
   def product_params
     params.require(:tbl_product).permit(:id,
