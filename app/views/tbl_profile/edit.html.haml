@@ -11,7 +11,7 @@
     = render 'shared/mypage-left-contents'
     .container__right
       %h2.container__right__title プロフィール
-      = form_for @profile, url: tbl_profile_path(@profile), method: :patch do |f|
+      = form_for @profile, url: tbl_profile_path(@profile.id), method: :patch do |f|
         .container__right__profile
           - if @profile.icon.blank?
             = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__image'
