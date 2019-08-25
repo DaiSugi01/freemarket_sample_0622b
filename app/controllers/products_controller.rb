@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :redirect_to_registration, except: [:index]
 
   def index
     # レディース
@@ -35,6 +36,7 @@ class ProductsController < ApplicationController
   end
 
   private
+
   def product_params
     params.require(:tbl_product).permit(:id,
                                         :name, 
@@ -50,5 +52,11 @@ class ProductsController < ApplicationController
                                         :mst_delivery_time_id,
                                         :mst_status,
                                         tbl_product_images_attributes: [:image])
+  end
+
+  def redirect_to_registration
+    unless tbl_user_signed_in?
+      redirect_to new_tbl_user_registration_path
+    end
   end
 end
