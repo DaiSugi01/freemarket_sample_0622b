@@ -41,11 +41,8 @@ class ProductsController < ApplicationController
 
   def pay
     begin
-      card_info = TblCard.find_by(tbl_user_id: current_tbl_user.id)
-      TblCard.pay(card_info.token)
-      redirect_to done_products_path
+      token_id = TblCard.select("token").find_by(tbl_user_id: current_tbl_user.id)
     rescue => e
-      binding.pry
       redirect_to root_path
     end
   end
