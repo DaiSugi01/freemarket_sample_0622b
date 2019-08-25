@@ -6,7 +6,13 @@ Rails.application.routes.draw do
     resources :tbl_address, only: [:new, :create]
   end
   root 'products#index'
-  resources :products, only:[:new,:create, :destroy]
+
+  resources :products, only:[:new, :create, :update, :destroy] do
+    collection do
+      get 'done'
+    end
+  end
+
   resources :cards, only: [:index,:new,:create]
   post 'cards/pay' => 'cards#pay'
 
