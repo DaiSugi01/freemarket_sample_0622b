@@ -57,6 +57,8 @@ class ProductsController < ApplicationController
   end
 
   def done
+    @product = TblProduct.find_by(id: params[:format])
+    @image = @product.tbl_product_images.where(tbl_product_id: params[:format]).first
   end
 
   def confirm
