@@ -20,14 +20,12 @@ class TblCard < ApplicationRecord
     Payjp::Customer.create(card: token.id)
   end
 
-  def self.pay(token_id)
+  def self.pay(amount,token_id)
     token = Payjp::Customer.retrieve(token_id)
     charge = Payjp::Charge.create(
-      # amountは後ほど修正
-      amount:  1000,
+      amount:  amount,
       customer: token.id,
       currency: 'jpy',
     )
-    binding.pry
   end
 end
