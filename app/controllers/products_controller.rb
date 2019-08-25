@@ -42,6 +42,7 @@ class ProductsController < ApplicationController
   def pay
     begin
       token_id = TblCard.select("token").find_by(tbl_user_id: current_tbl_user.id)
+      product = TblProduct.find_by(id: params[:format])
     rescue => e
       redirect_to root_path
     end
