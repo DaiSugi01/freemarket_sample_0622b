@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   resources :products, only:[:new, :create, :show, :update, :destroy] do
     collection do
       get 'done'
+      get 'pay'
+    end
+
+    member do
+      get 'confirm'
     end
   end
 
