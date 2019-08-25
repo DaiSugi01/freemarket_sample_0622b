@@ -29,4 +29,5 @@
 
 # Ignore .idea
 /.idea
-.DS_Store
+
+/public/uploads

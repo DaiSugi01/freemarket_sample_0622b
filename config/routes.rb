@@ -1,25 +1,25 @@
 Rails.application.routes.draw do
   devise_for :tbl_users, :controllers => {
-    :registrations => 'tbl_user/registrations'
+    registrations: 'tbl_user/registrations',
+    omniauth_callbacks: 'tbl_user/omniauth_callbacks',
   }
   resources :tbl_users do
     resources :tbl_address, only: [:new, :create]
   end
   root 'products#index'
 
-  resources :products, only:[:new, :create, :update, :destroy] do
+  resources :products, only:[:new, :create, :show, :update, :destroy] do
     collection do
       get 'done'
     end
   end
 
   resources :cards, only: [:index,:new,:create]
-  post 'cards/pay' => 'cards#pay'
 
-  resources :users do
+  resources :mypage do
     collection do
+      get 'index'
       get 'signout'
-      get 'mypage'
       get 'sell_product'
     end
 

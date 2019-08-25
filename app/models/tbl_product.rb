@@ -12,7 +12,7 @@ class TblProduct < ApplicationRecord
 
   has_many :tbl_product_images
   accepts_nested_attributes_for :tbl_product_images
-  belongs_to :tbl_user,optional: true
+  belongs_to :tbl_user
   belongs_to :mst_major_category
   belongs_to :mst_brand,optional: true
   belongs_to :mst_size,optional: true

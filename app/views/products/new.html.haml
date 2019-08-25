@@ -28,8 +28,8 @@
             ドラッグアンドドロップ<br>
             またはクリックしてファイルをアップロード
             %label.file
-              = f.fields_for :tbl_product_images do |image|
-                = image.file_field :image, class:"file",id: "file", style: "display:none;"
+              = f.fields_for :tbl_product_images do |f|
+                = f.file_field :image, multiple: true, class:"file",id: "file", name: "tbl_product_images[image][]",style: "display:none;"
 
 
         -# 商品名/商品の説明

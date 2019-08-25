@@ -12,13 +12,13 @@
         %ul.transactions
           %li.transactions__list
             %h3.transactions__list__text
-              = link_to "出品中", sell_product_users_path
+              = link_to "出品中", sell_product_mypage_index_path
           %li.transactions__list--not-active
             %h3.transactions__list__text
-              = link_to "取引中", sell_product_users_path
+              = link_to "取引中", sell_product_mypage_index_path
           %li.transactions__list--not-active
             %h3.transactions__list__text
-              = link_to "売却済み", sell_product_users_path
+              = link_to "売却済み", sell_product_mypage_index_path
         = render partial: "tab-contents", collection: @contents, as: :product    
 
   -# フッター

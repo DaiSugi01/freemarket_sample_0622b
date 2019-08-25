@@ -11,9 +11,9 @@
     = render 'shared/mypage-left-contents'
     .container__right
       .container__right__chapter
-        = form_with url: signout_users_path, class:  "container__right__chapter__singout_button" do |f|
+        .container__right__chapter__singout_button
           .container__right__chapter__singout_button__form
-            = f.submit "ログアウト", class: "sign-out"
+            = link_to 'ログアウト', destroy_tbl_user_session_path, method: :delete, class: "sign-out"
 
   -# フッター
   = render 'shared/app-banner'
