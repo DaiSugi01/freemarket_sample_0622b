@@ -11,6 +11,6 @@ class TblProfileController < ApplicationController
 
   private
   def tbl_profile_param
-    params.require(:tbl_profile).permit(:nickaname, :description)
+    params.require(:tbl_profile).permit(:nickaname, :description, :icon)
   end
 end

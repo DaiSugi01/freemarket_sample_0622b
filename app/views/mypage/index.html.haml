@@ -1,4 +1,4 @@
--# 出品商品画面
+-# マイページ
 .wrapper
 
   -# へッター
@@ -12,7 +12,7 @@
           - if current_tbl_user.tbl_profile.icon.blank?
             = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__image'
           - else
-            = image_tag current_tbl_user.tbl_profile.icon, alt: 'user-icon', class: 'container__right__profile__image'
+            = image_tag current_tbl_user.tbl_profile.icon.url , alt: 'user-icon', class: 'container__right__profile__image'
           %p.container__right__profile__nickname uki
           %p.container__right__profile__info 評価  25  出品数  27
 

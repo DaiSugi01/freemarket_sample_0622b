@@ -16,7 +16,7 @@
           - if @profile.icon.blank?
             = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__icon'
           - else
-            = image_tag @profle.icon, alt: 'user-icon', class: 'container__right__profile__icon'
+            = image_tag @profile.icon.url, alt: 'user-icon', class: 'container__right__profile__icon'
           = f.file_field :icon, class: 'container__right__profile__file not_display'
           = f.text_field :nickname, class: 'container__right__profile__input'
         %div
