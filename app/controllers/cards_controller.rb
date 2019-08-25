@@ -13,7 +13,7 @@ class CardsController < ApplicationController
       card = TblCard.create({token: token.id, tbl_user_id: current_tbl_user.id})
       card.save
       redirect_to cards_path
-    rescue
+    rescue => e
       redirect_to new_card_path, alert: 'クレジットカード登録に失敗しました'
     end
   end

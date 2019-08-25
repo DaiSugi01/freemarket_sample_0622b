@@ -18,8 +18,6 @@ class ProductsController < ApplicationController
     @supreme_products = TblProduct.get_blands(3)
     # ナイキ
     @nike_products = TblProduct.get_blands(4)
-
-    
   end
 
   def new
@@ -41,12 +39,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  def pay
+    begin
+      card_info = TblCard.find_by(tbl_user_id: current_tbl_user.id)
+      TblCard.pay(card_info.token)
+      redirect_to done_products_path
+    rescue => e
+      binding.pry
+      redirect_to root_path
+    end
+  end
+  
   def show
     @product = TblProduct.find(params[:id])
     @image = @product.tbl_product_images
   end
 
   def done
+  end
+
+  def confirm
+    @product = TblProduct.find(params[:id])
   end
 
   private
