@@ -44,6 +44,7 @@ class ProductsController < ApplicationController
       token_id = TblCard.select("token").find_by(tbl_user_id: current_tbl_user.id)
       product = TblProduct.find_by(id: params[:format])
       TblCard.pay(product.price, token_id.token)
+      product.update(mst_status_id: 3)
     rescue => e
       redirect_to root_path
     end
