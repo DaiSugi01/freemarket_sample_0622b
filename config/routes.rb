@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
-  resources :products, only:[:new, :create, :show, :update, :destroy] do
+  resources :products, only:[:new, :create, :show, :destroy] do
     collection do
       get 'done'
       get 'pay'
