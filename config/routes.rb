@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
-  resources :products, only:[:new,:create, :show, :destroy]
+  resources :products, only:[:new,:create, :show, :destroy] do
+    member do
+      post 'confirm'
+    end
+  end
+
   resources :cards, only: [:index]
 
   resources :mypage do
