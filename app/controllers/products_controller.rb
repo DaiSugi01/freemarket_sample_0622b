@@ -45,6 +45,25 @@ class ProductsController < ApplicationController
     @image = @product.tbl_product_images
   end
 
+  def edit
+    @product = TblProduct.find(params[:id])
+    @image = @product.tbl_product_images
+  end
+
+  def update
+    @product = TblProduct.find(params[:id])
+    @image = @product.tbl_product_images
+
+    if @product.update(update_product_params)
+      # params[:tbl_product_images]['image'].first(10).each do |a|
+      #   @image = @product.tbl_product_images.create!(image: a)
+      # end
+      redirect_to sell_product_detail_mypage_path
+    else
+      render action: 'edit'
+    end
+  end
+
   private
   def product_params
     params.require(:tbl_product).permit(:id,
@@ -64,4 +83,24 @@ class ProductsController < ApplicationController
                                         tbl_product_images_attributes: [:image]
                                         )
   end
+
+  def update_product_params
+    params.require(:tbl_product).permit(:id,
+                                        :name, 
+                                        :description,
+                                        :price,
+                                        :mst_major_category_id,
+                                        :mst_brand,
+                                        :mst_size,
+                                        :mst_condition_id,
+                                        :mst_burden_id,
+                                        :mst_delivery_method,
+                                        :mst_prefecture_id,
+                                        :mst_delivery_time_id,
+                                        :mst_status,
+                                        :tbl_user_id,
+                                        tbl_product_images_attributes: [:image,:_destroy, :id]
+                                        )
+  end
+
 end
