@@ -2,10 +2,93 @@
 .wrapper
 
   -# へッター
-  = render 'shared/header'
+  .exhibit-container__header-navi
+    = render 'shared/header'
+  -# 出品中の商品詳細(_show.scss)
+  %main.exhibit-container__product-datail
+    %h1.exhibit-container__product-datail__product-name
+      = @product.name
 
-  %main.container
-    = link_to "この商品を削除する", mypage_path(@product_detail.id), method: :delete
+    -# 商品詳細メイン部分  
+    .exhibit-container__product-datail__main
+      .exhibit-container__product-datail__main__left
+        .exhibit-container__product-datail__main__left__main-image
+          = image_tag @image[0].image.url, class: 'main-image-size'
+        .exhibit-container__product-datail__main__left__sub-images
+          - 10.times do |i|
+            = image_tag @image[i].image.url, alt:'商品画像'+i.to_s,class: 'sub-image-size' if @image[i].present?
+
+      %table.exhibit-container__product-datail__main__right
+        %tbody
+          %tr
+            %th.datail-header 出品者
+            %td.datail-data.link-text
+              = link_to @product.tbl_user.tbl_profile.nickname
+          %tr
+            %th.datail-header カテゴリー
+            %td.datail-data.link-text
+              = link_to @product.mst_major_category.name
+          %tr 
+            %th.datail-header ブランド          
+            %td.datail-data.link-text
+              -# = link_to @product.mst_brand.name
+          %tr 
+            %th.datail-header 商品の状態      
+            %td.datail-data
+              = @product.mst_condition.name
+          %tr 
+            %th.datail-header 発送料の負担     
+            %td.datail-data 
+              = @product.mst_burden.name
+          %tr 
+            %th.datail-header 配送の方法    
+            %td.datail-data 
+              -# = @product.mst_delivery_method.name
+          %tr 
+            %th.datail-header 発送元地域    
+            %td.datail-data.link-text
+              = link_to @product.mst_prefecture.name
+
+          %tr 
+            %th.datail-header 発送日の目安   
+            %td.datail-data
+              = @product.mst_delivery_time.name
+
+    -# 価格/購入ボタン
+    .exhibit-container__product-datail__price
+      %soan.exhibit-container__product-datail__price__main
+        = "¥#{@product.price}" 
+      %span.exhibit-container__product-datail__price__tax
+        (税込)
+      %span.exhibit-container__product-datail__price__fee
+        送料込み
+
+    -# 商品説明
+    .exhibit-container__product-datail__description
+      %p.exhibit-container__product-datail__description__text
+        = @product.description
+
+  -# 商品の編集、削除ボタン(_sell_product-datail.scss)
+  .exhibit-container__product-edit
+    = link_to '商品の編集',edit_product_path(@product.id), class:'product-edit'
+    %p
+      or
+    = link_to '出品を一旦停止する','root_path', class:'product-status'
+    = link_to "この商品を削除する", mypage_path(@product.id), method: :delete, class: 'product-delete'
+
+  -# コメント欄 
+  - if tbl_user_signed_in?
+    .exhibit-container__product-datail__comment
+      .exhibit-container__product-datail__comment__container
+        %p.exhibit-container__product-datail__comment__container__text
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = form_for :comment do |f|
+          = f.text_area :comment, class:'comment-box'
+          = f.submit 'コメントする', class: 'comment-btn'
+
+    .exhibit-container__product-datail__footer-space
+
+
 
   -# フッター
   = render 'shared/app-banner'
