@@ -17,7 +17,9 @@ class MypageController < ApplicationController
 
   # 出品した商品　詳細
   def sell_product_detail
-    @product_detail = TblProduct.find(params[:id])
+    # @product_detail = TblProduct.find(params[:id])
+    @product = TblProduct.find(params[:id])
+    @image = @product.tbl_product_images
   end
 
   # 商品削除
