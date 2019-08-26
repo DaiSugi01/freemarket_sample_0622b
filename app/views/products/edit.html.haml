@@ -6,8 +6,8 @@
       = link_to root_path do
         =image_tag 'mercari.png',  alt: 'mercari', width: '185', height: '49'
 
-  %main.exhibit-container__main
 
+  %main.exhibit-container__main
     = form_for(@product,url:product_path(@product),html: {method: "patch"}) do |f|
       -# ここから入力欄
       .exhibit-container__main__sell
@@ -107,8 +107,7 @@
               .label.exhibit-container__main__sell__content-4__right-group4__sales-price__selling-price
                 販売利益
               %p.label.exhibit-container__main__sell__content-4__right-group4__sales-price__selling-price.result
-      
-        
+         
         .exhibit-container__main__sell__sell-btn          
           = f.submit "変更する", class: 'send-btn'
           = link_to 'キャンセル', sell_product_detail_mypage_path,class:'return-btn'
