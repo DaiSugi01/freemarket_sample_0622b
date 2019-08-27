@@ -33,7 +33,7 @@
                 %li.card
                   .card_box
                     %figure
-                      = image_tag 'visa', alt: 'card-brand', width: '49', height: '15', class: 'card-brand'
+                      = image_tag card.brand, alt: 'card-brand', width: '49', height: '15', class: 'card-brand'
                     .payment-num
                       = "************" + card.last_four_number
                     .payment-num
