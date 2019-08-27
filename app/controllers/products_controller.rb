@@ -80,7 +80,6 @@ class ProductsController < ApplicationController
                                         :mst_delivery_method,
                                         :mst_prefecture_id,
                                         :mst_delivery_time_id,
-                                        
                                         :tbl_user_id,
                                         tbl_product_images_attributes: [:image]
                                         ).merge(mst_status_id: 1)

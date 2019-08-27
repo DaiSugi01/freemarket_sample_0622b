@@ -1,0 +1,2 @@
+class MstCorrespondence < ApplicationRecord
+end
