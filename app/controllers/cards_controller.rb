@@ -25,4 +25,15 @@ class CardsController < ApplicationController
       redirect_to new_card_path, alert: 'クレジットカード登録に失敗しました'
     end
   end
+
+  def destroy
+    begin
+      card = TblCard.find(params[:id])
+      TblCard.destroy_card_of_payjp(card)
+      card.destroy
+      redirect_to cards_path
+    rescue => e
+      redirect_to cards_path, alert: 'クレジットカードの削除に失敗しました'
+    end
+  end
 end
