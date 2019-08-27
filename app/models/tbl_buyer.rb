@@ -1,0 +1,2 @@
+class TblBuyer < ApplicationRecord
+end

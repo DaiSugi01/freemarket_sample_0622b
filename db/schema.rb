@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_105355) do
+ActiveRecord::Schema.define(version: 2019_08_27_070040) do
 
   create_table "mst_brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 2019_08_18_105355) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_mst_conditions_on_name"
+  end
+
+  create_table "mst_correspondences", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_mst_correspondences_on_name"
   end
 
   create_table "mst_delivery_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,6 +94,19 @@ ActiveRecord::Schema.define(version: 2019_08_18_105355) do
     t.datetime "updated_at", null: false
     t.index ["mst_prefecture_id"], name: "index_tbl_addresses_on_mst_prefecture_id"
     t.index ["tbl_user_id"], name: "index_tbl_addresses_on_tbl_user_id"
+  end
+
+  create_table "tbl_buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "tbl_user_id", null: false
+    t.bigint "tbl_product_id", null: false
+    t.bigint "tbl_address_id", null: false
+    t.bigint "mst_correspondence_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mst_correspondence_id"], name: "index_tbl_buyers_on_mst_correspondence_id"
+    t.index ["tbl_address_id"], name: "index_tbl_buyers_on_tbl_address_id"
+    t.index ["tbl_product_id"], name: "index_tbl_buyers_on_tbl_product_id"
+    t.index ["tbl_user_id"], name: "index_tbl_buyers_on_tbl_user_id"
   end
 
   create_table "tbl_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -167,6 +187,10 @@ ActiveRecord::Schema.define(version: 2019_08_18_105355) do
     t.index ["reset_password_token"], name: "index_tbl_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tbl_buyers", "mst_correspondences"
+  add_foreign_key "tbl_buyers", "tbl_addresses"
+  add_foreign_key "tbl_buyers", "tbl_products"
+  add_foreign_key "tbl_buyers", "tbl_users"
   add_foreign_key "tbl_cards", "tbl_users"
   add_foreign_key "tbl_product_images", "tbl_products"
   add_foreign_key "tbl_products", "mst_brands"
