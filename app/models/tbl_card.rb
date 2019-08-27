@@ -22,7 +22,7 @@ class TblCard < ApplicationRecord
 
   def self.destroy_card_of_payjp(card)
     customer = Payjp::Customer.retrieve(card.token)
-    card = customer.cards.retrieve(customer.cards.data[0].customer)
+    card = customer.cards.retrieve(customer.cards.data[0].id)
     card.delete
   end
 
@@ -46,5 +46,10 @@ class TblCard < ApplicationRecord
   def self.make_year(year)
     #有効期限-年の値を加工する。
     year = year.to_s.slice(2, 2)
+  end
+
+  def self.make_brand(brand)
+    #カードブランドを小文字にする
+    brand.downcase!
   end
 end

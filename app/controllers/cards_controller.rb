@@ -13,7 +13,8 @@ class CardsController < ApplicationController
       token = TblCard.create_card_to_payjp(params)
       expire_month = TblCard.make_month(token.cards.data[0].exp_month)
       expire_year = TblCard.make_year(token.cards.data[0].exp_year)
-      card = TblCard.create({brand:token.cards.data[0].brand,
+      brand = TblCard.make_brand(token.cards.data[0].brand)
+      card = TblCard.create({brand:brand,
                              expire_month: expire_month,
                              expire_year: expire_year,
                              last_four_number: token.cards.data[0].last4.to_s,
