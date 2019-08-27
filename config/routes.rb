@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:index,:new,:create]
+  resources :cards, only: [:index, :new, :create, :destroy]
 
   resources :mypage do
     collection do
