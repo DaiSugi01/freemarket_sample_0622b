@@ -90,6 +90,10 @@ ActiveRecord::Schema.define(version: 2019_08_18_105355) do
   end
 
   create_table "tbl_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "brand", null: false
+    t.string "expire_month", null: false
+    t.string "expire_year", null: false
+    t.string "last_four_number", null: false
     t.string "token", null: false
     t.bigint "tbl_user_id", null: false
     t.datetime "created_at", null: false
