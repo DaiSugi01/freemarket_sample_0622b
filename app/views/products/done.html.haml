@@ -1,0 +1,66 @@
+-# 商品購入完了画面
+
+.exhibit-container
+  %header.exhibit-container__header
+    .exhibit-container__header__merucari-logo
+      = link_to root_path do
+        =image_tag 'mercari.png',  alt: 'mercari', width: '185', height: '49'
+
+  %main.exhibit-container__main
+    .exhibit-container__main__wrap
+      .transact-attention
+        %h3
+          = image_tag("clock", width: '36', height: '36', class: "clock-icon")
+          %span 発送をお待ちください
+          %p 出品者からの発送通知をお待ちください 
+      %h2.head 購入が完了しました
+
+      %section.buy-content
+        .buy-content--inner
+          %h3
+            = image_tag @image.image.url, width: '36', height: '36', class: "clock-icon"
+          %p 
+            = @product.name
+
+      %section.buy-content--next
+        .buy-content--next--inner
+          %span.buy-content--next--inner--price
+            = "¥"
+            = @product.price
+          %span.buy-content--next--inner--text 送料込み
+
+      %section.buy-content--next
+        .buy-content--next--inner
+          %h3.buy-content--next--inner__address-to 配送先
+          %address.buy-content--next--inner__address
+            = "〒" + "111-1111"
+            %br
+            = "東京都渋谷区神南1丁目12−16アジアビル8F"
+            %br
+            = "氏名"
+
+      %section.buy-content--flow
+        .buy-content--flow--inner
+          %h3 発送通知後の流れ
+          .image-box
+            = image_tag("evaluation", width: '150', height: '30', class: "evaluation-icon")
+          %p
+            = "商品を受け取ったら"
+            %br
+            = "出品者の評価をしましょう。"
+            %br
+            = "購入代金が出品者に振り込まれます。"
+            %br
+            = "評価後に取引は完了です。"
+        .buy-content--flow--inner__link
+          = link_to "マイページへ戻る", mypage_index_path, class: "mypage-link"
+
+    %footer.exhibit-container__footer
+      %ul.guide
+        %li< プライバシーポリシー
+        %li.li-2< メルカリ利用規約
+        %li.li-2< 特定商取引に関する表記
+      .exhibit-container__footer__mercari-logo
+        = link_to image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?891577966', alt: '', height: '65', width: '80'),root_path
+      .exhibit-container__footer__comment
+        © 2019 Mercari

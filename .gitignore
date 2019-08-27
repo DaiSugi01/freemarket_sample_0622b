@@ -29,3 +29,5 @@
 
 # Ignore .idea
 /.idea
+
+/public/uploads

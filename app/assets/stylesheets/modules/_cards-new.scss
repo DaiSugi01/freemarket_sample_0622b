@@ -1,0 +1,153 @@
+// クレジットカード登録画面
+
+.credit-content {
+  height: 100%;
+  padding-bottom: 40px;
+
+  form {
+    padding-bottom: 40px;
+  }
+  
+  &__head {
+    border-bottom: solid 2px #F5F5F5;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 7px;
+    text-align: center;
+  }
+
+  .card-form {
+    height: 100%;
+    padding: 40px 64px;
+
+    &__box {
+      height: 407px;
+      margin: 0 auto;
+      width: 343px;
+
+      &__alert {
+        color: #ea352d;
+        font-size: 14px;
+        text-align: center;
+      }
+    
+      &__num-group {
+        margin-top: 40px;
+
+        &-card {
+          display: flex;
+          margin-top: 10px;
+
+
+          .card-brand {
+            margin-left: 10px;
+          }
+        }
+      }
+
+      &__expire {
+        margin-top: 22px;
+
+        &__flex-box {
+          display: flex;
+          justify-content: flex-start;
+
+          &__wrap {
+            margin-top: 4px;
+            position: relative;
+            width: calc(50% - 2px);
+            font-size: 14px;
+
+            &--payment_card_expire {
+              font-size: 14px;
+              position: relative;
+              width: calc(100% - 38px);
+            }
+
+            span {
+              display: inline-block;
+              margin: 0;
+              padding: 0;
+              position: relative;
+              right: 15px;
+              width: 10px;
+            }
+            
+            select {
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              height: 48px;
+              padding: 0 16px;
+              font-size: 16px;
+              line-height: 1.5;
+              border-radius: 5px;
+              border: 1px solid #ccc;
+  
+              background-color: #FFFFFF;
+            }
+
+            i {
+              color: #888888;
+              top: 5px;
+              right: 35px;
+              font-size: 30px;
+              position: relative;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+
+      &__security {
+        margin-top: 30px;
+
+        &--seqcode {
+
+          &--text {
+            color: #0099e8;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: right;
+
+            i {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+
+      &__btn-add {
+        @include form_button();
+        margin-top: 30px;
+        font-size: 14px;
+      }
+
+      &--label {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      
+      &--input {
+        border-radius: 4px;
+        border: 1px solid #ccc;;
+        font-size: 16px;
+        height: 28px;
+        margin-top: 4px;
+        padding: 10px 16px 8px;
+        width: 90%;
+      }
+
+      &--require {
+        @include required();
+        border-radius: 2px;
+        height: 19px;
+        margin-left: 6px;
+        padding: 2px 4px;
+        width: 32px;
+      }
+    }
+  }
+}
+
