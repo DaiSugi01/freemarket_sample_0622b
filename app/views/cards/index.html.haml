@@ -28,15 +28,16 @@
                   = link_to new_card_path, target: "" do
                     %i.fa.fa-credit-card
                     %span クレジットカードを追加する
-            %ul
+            %ul.card_lists
               - @cards.each do |card|
-                %li
-                  %figure
-                    = image_tag 'visa', alt: 'card-brand', width: '49', height: '15', class: 'sign_up_footer__logo'
-                  .payment-num
-                    = "************" + card.last_four_number
-                  .payment-num
-                    = card.expire_month + "/" + card.expire_year
+                %li.card
+                  .card_box
+                    %figure
+                      = image_tag 'visa', alt: 'card-brand', width: '49', height: '15', class: 'card-brand'
+                    .payment-num
+                      = "************" + card.last_four_number
+                    .payment-num
+                      = card.expire_month + " / " + card.expire_year
                     = link_to "削除する", card_path(card), method: :delete, class: 'delete-btn'
           .container__right__chapter__inner-box__about-payment
             = link_to root_path, target: "" do
