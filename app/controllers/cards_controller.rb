@@ -1,6 +1,7 @@
 class CardsController < ApplicationController
 
   def index
+    @cards = TblCard.where(tbl_user_id: current_tbl_user.id)
   end
 
   def new
