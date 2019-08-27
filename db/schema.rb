@@ -99,12 +99,10 @@ ActiveRecord::Schema.define(version: 2019_08_27_070040) do
   create_table "tbl_buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "tbl_user_id", null: false
     t.bigint "tbl_product_id", null: false
-    t.bigint "tbl_address_id", null: false
     t.bigint "mst_correspondence_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mst_correspondence_id"], name: "index_tbl_buyers_on_mst_correspondence_id"
-    t.index ["tbl_address_id"], name: "index_tbl_buyers_on_tbl_address_id"
     t.index ["tbl_product_id"], name: "index_tbl_buyers_on_tbl_product_id"
     t.index ["tbl_user_id"], name: "index_tbl_buyers_on_tbl_user_id"
   end
@@ -188,7 +186,6 @@ ActiveRecord::Schema.define(version: 2019_08_27_070040) do
   end
 
   add_foreign_key "tbl_buyers", "mst_correspondences"
-  add_foreign_key "tbl_buyers", "tbl_addresses"
   add_foreign_key "tbl_buyers", "tbl_products"
   add_foreign_key "tbl_buyers", "tbl_users"
   add_foreign_key "tbl_cards", "tbl_users"
