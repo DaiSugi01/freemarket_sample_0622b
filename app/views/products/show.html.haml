@@ -5,8 +5,71 @@
     = render 'shared/header'
 
   -# 商品詳細部分
-  = render 'show-body',{product:@product,image:@image}
-  
-  -# フッター部分
+  %main.exhibit-container__product-datail
+
+    = render 'show-body',{product:@product,image:@image}
+
+    -# 価格/購入ボタン
+    .exhibit-container__product-datail__price
+      %soan.exhibit-container__product-datail__price__main
+        = "¥#{@product.price}" 
+      %span.exhibit-container__product-datail__price__tax
+        (税込)
+      %span.exhibit-container__product-datail__price__fee
+        送料込み
+    .exhibit-container__product-datail__buy-btn
+      = link_to "購入画面に進む",root_path, class:'buy-btn__text'
+
+    -# 商品説明
+    .exhibit-container__product-datail__description
+      %p.exhibit-container__product-datail__description__text
+        = @product.description
+
+    -# いいねボタン/報告ボタン
+    .exhibit-container__product-datail__product-btn
+      .exhibit-container__product-datail__product-btn__left
+        %button.good-btn.short-btn
+          %i.fa.fa-heart.fa-lg
+          %span.short-btn__text いいね!
+          %span.short-btn__number 1
+
+        %button.report-btn.short-btn
+          %i.fa.fa-flag.fa-lg
+          %span.short-btn__text 不適切な商品の報告
+          
+      .exhibit-container__product-datail__product-btn__right
+      
+  -# コメント欄 
+  - if tbl_user_signed_in?
+    .exhibit-container__product-datail__comment
+      .exhibit-container__product-datail__comment__container
+        %p.exhibit-container__product-datail__comment__container__text
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = form_for :comment do |f|
+          = f.text_area :comment, class:'comment-box'
+          = f.submit 'コメントする', class: 'comment-btn'
+
+
+  -# メディアリンク
+  .exhibit-container__product-datail__social-media
+    %ul.exhibit-container__product-datail__social-media__list
+      %li.facebook-link
+        = link_to 'https://www.facebook.com/mercarijp' ,class:'icon-link' do
+          %i.fa.fa-facebook-square.facebook-icon
+      %li.twitter-link
+        = link_to 'https://twitter.com/mercari_jp', class:'icon-link' do
+          %i.fa.fa-twitter.twitter-icon
+      %li.pinterest-link
+        = link_to 'https://www.pinterest.jp/', class:'icon-link' do
+          %i.fa.fa-pinterest.pinterest-icon
+
+  .exhibit-container__product-datail__relation-products
+
+  -# バナー
   = render 'shared/app-banner'
+
+  -# フッター
   = render 'shared/footer'
+
+
+
