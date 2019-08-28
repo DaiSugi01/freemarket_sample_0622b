@@ -1,3 +1,5 @@
+// マイページ　タブの表示切り替え
+
 function transaction(){
     $('.transactions').on('click', '.transactions__list--not-active', function(){
         // タブの切り替え
