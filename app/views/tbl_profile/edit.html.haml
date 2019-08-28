@@ -12,6 +12,7 @@
     .container__right
       %h2.container__right__title プロフィール
       = form_for @profile, url: tbl_profile_path(@profile.id), method: :patch do |f|
+        = render "devise/shared/error_messages", resource: @profile
         .container__right__profile
           - if @profile.icon.blank?
             = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__icon'

@@ -4,11 +4,6 @@
   &__title {
     @include form_title();
   }
-  #error_explanation {
-    margin: 0 30px;
-    color: red;
-    font-size: 15px;
-  }
   &__field {
     @include form_field();
     &__link {
@@ -86,4 +81,9 @@
   &__field--empty {
     padding-bottom: 50px;
   }
+}
+#error_explanation {
+  margin: 0 30px;
+  color: red;
+  font-size: 15px;
 }

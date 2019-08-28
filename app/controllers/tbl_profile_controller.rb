@@ -6,7 +6,9 @@ class TblProfileController < ApplicationController
 
   def update
     @profile = TblProfile.find(params[:id])
-    @profile.update(tbl_profile_param)
+    unless @profile.update(tbl_profile_param)
+      render :edit
+    end
   end
 
   private
