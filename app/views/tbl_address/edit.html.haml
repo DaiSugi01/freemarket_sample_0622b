@@ -1,0 +1,54 @@
+-# 本人情報確認
+.wrapper
+
+  -# へッター
+  = render 'shared/header'
+
+  %main.container
+    = render 'shared/mypage-left-contents'
+    .container__right
+      %h2.container__right__title 本人情報確認
+      .container__right__address
+        .container__right__address__attention
+          %p お客さまの本人情報をご登録ください。
+          %p 登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          = link_to '本人確認書類のアップロードについて', ''
+        = render "devise/shared/error_messages", resource: @address
+        = form_for @address, rl: tbl_address_path(@address.id), method: :patch do |f|
+          .container__right__address__item
+            = f.label "お名前", class: "container__right__address__item__label"
+            .container__right__address__item__output= @address.full_name
+          .container__right__address__item
+            = f.label "お名前カナ", class: "container__right__address__item__label"
+            .container__right__address__item__output= @address.full_name_kana
+          .container__right__address__item
+            = f.label "生年月日", class: "container__right__address__item__label"
+            .container__right__address__item__output= current_tbl_user.birthday
+          .container__right__address__item
+            = f.label "郵便番号", class: "container__right__address__item__label"
+            %span.required 必須
+            %br/
+            = f.text_field :zip, class: "container__right__address__item__input", autofocus: true, placeholder: "例）135-0012"
+          .container__right__address__item
+            = f.label "都道府県", class: "container__right__address__item__label"
+            %span.required 必須
+            %br/
+            = f.select :mst_prefecture_id, @prefs.map{|pref| [pref.name, pref.id]}, {}, {class: "container__right__address__item__input"}
+          .container__right__address__item
+            = f.label "住所", class: "container__right__address__item__label"
+            %span.required 必須
+            %br/
+            = f.text_field :address, class: "container__right__address__item__input", autofocus: true, placeholder: "例）渋谷区神南1-1アジアビル9F"
+          .container__right__address__item
+            = f.label "電話番号", class: "container__right__address__item__label"
+            %span.required 必須
+            %br/
+            = f.text_field :phone, class: "container__right__address__item__input", autofocus: true, placeholder: "例）08044556622"
+          .container__right__address__item
+            = f.submit "次へ進む", class: "button"
+        = link_to '本人情報の登録について', ''
+  = render 'shared/sell-button'
+
+  -# フッター
+  = render 'shared/app-banner'
+  = render 'shared/footer'
