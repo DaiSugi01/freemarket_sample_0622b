@@ -1,0 +1,30 @@
+-# プロフィール画面
+.wrapper
+
+  -# ヘッダー
+  = render 'shared/header'
+
+  -# 出品ボタン
+  = render 'shared/sell-button'
+
+  %main.container
+    = render 'shared/mypage-left-contents'
+    .container__right
+      %h2.container__right__title プロフィール
+      = form_for @profile, url: tbl_profile_path(@profile.id), method: :patch do |f|
+        = render "devise/shared/error_messages", resource: @profile
+        .container__right__profile
+          - if @profile.icon.blank?
+            = image_tag 'logo-gray', alt: 'user-icon', class: 'container__right__profile__icon'
+          - else
+            = image_tag @profile.icon.url, alt: 'user-icon', class: 'container__right__profile__icon'
+          = f.file_field :icon, class: 'container__right__profile__file not_display'
+          = f.text_field :nickname, class: 'container__right__profile__input'
+        %div
+          = f.text_area :description, class: 'container__right__description'
+        %div
+          = f.submit '変更する', class: 'container__right__submit'
+
+  -# フッター
+  = render 'shared/app-banner'
+  = render 'shared/footer'
