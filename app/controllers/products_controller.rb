@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     @supreme_products = TblProduct.get_blands(3)
     # ナイキ
     @nike_products = TblProduct.get_blands(4)
+  end
 
   def new
     @product = TblProduct.new
