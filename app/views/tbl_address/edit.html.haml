@@ -4,6 +4,10 @@
   -# へッター
   = render 'shared/header'
 
+  .gretel
+    - breadcrumb :tbl_address
+    = breadcrumbs
+
   %main.container
     = render 'shared/mypage-left-contents'
     .container__right

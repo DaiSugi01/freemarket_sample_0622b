@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
 
   resources :products, only:[:new,:create, :show, :destroy]
-  resources :cards, only: [:index]
+  resources :cards, only: [:index, :new]
   resources :tbl_profile, only: [:edit, :update]
   resources :tbl_address, only: [:edit, :update]
 
