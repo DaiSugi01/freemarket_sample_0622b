@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'products#index'
 
 
-  resources :products do
+  resources :products, except:[:index] do
     collection do
       get 'done'
       get 'pay'
