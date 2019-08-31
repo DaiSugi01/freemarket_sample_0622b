@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :redirect_to_registration, except: [:index]
+  before_action :redirect_to_top, except: [:index,:show]
+  before_action :set_product, only: [:show,:edit,:update, :confirm]
+
 
   def index
     # レディース
@@ -55,8 +57,20 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = TblProduct.find(params[:id])
     @image = @product.tbl_product_images
+  end
+
+  def edit
+    @image = @product.tbl_product_images
+  end
+
+  def update
+    @image = @product.tbl_product_images
+    if @product.update(update_product_params)
+      redirect_to sell_product_detail_mypage_path
+    else
+      render action: 'edit'
+    end
   end
 
   def done
@@ -65,12 +79,23 @@ class ProductsController < ApplicationController
   end
 
   def confirm
-    @product = TblProduct.find(params[:id])
     @image = @product.tbl_product_images
     @address = current_tbl_user.tbl_addresses[0]
   end
+  
+
 
   private
+
+  def set_product
+    @product = TblProduct.find(params[:id])
+  end
+
+  def redirect_to_top
+    unless tbl_user_signed_in?
+      redirect_to root_path
+    end
+  end
 
   def product_params
     params.require(:tbl_product).permit(:id,
@@ -95,4 +120,24 @@ class ProductsController < ApplicationController
       redirect_to new_tbl_user_registration_path
     end
   end
+
+  def update_product_params
+    params.require(:tbl_product).permit(:id,
+                                        :name, 
+                                        :description,
+                                        :price,
+                                        :mst_major_category_id,
+                                        :mst_brand,
+                                        :mst_size,
+                                        :mst_condition_id,
+                                        :mst_burden_id,
+                                        :mst_delivery_method,
+                                        :mst_prefecture_id,
+                                        :mst_delivery_time_id,
+                                        :mst_status,
+                                        :tbl_user_id,
+                                        tbl_product_images_attributes: [:image,:_destroy, :id]
+                                        )
+  end
+
 end

@@ -38,12 +38,14 @@
         .main-image-size{
           width: 300px;
           height: 300px;
+          object-fit: contain;
         }
       }
 
       &__sub-images{
         width: 300px;
-        height: 120px;
+        height: 300px;
+        object-fit: contain;
 
         .sub-image-size{
           width: 60px;

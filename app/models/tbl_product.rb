@@ -10,8 +10,8 @@ class TblProduct < ApplicationRecord
     length: { maximum: 1000 } 
   validates :price, presence: true
 
-  has_many :tbl_product_images
-  accepts_nested_attributes_for :tbl_product_images
+  has_many :tbl_product_images, dependent: :destroy
+  accepts_nested_attributes_for :tbl_product_images, allow_destroy: true
   belongs_to :tbl_user
   belongs_to :mst_major_category
   belongs_to :mst_brand,optional: true

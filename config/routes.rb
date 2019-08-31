@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
-  resources :products, only:[:new, :create, :show, :destroy] do
+
+  resources :products, except:[:index] do
     collection do
       get 'done'
       get 'pay'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
       get 'confirm'
     end
   end
+
 
   resources :products, only:[:new,:create, :show, :destroy]
   resources :cards, only: [:index]
