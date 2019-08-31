@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
-  resources :products, only:[:new,:create, :show, :edit,:update, :destroy]
+  resources :products
   resources :cards, only: [:index]
 
   resources :mypage do
