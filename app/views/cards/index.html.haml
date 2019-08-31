@@ -18,8 +18,9 @@
         %h2.container__right__chapter__pay-method 支払い方法
         .container__right__chapter__inner-box
           %section
-            - flash.each do |key, value|
-              = content_tag(:p, value, class: "container__right__chapter__inner-box__" + key)
+            - if flash[:alert]
+              - flash.each do |key, value|
+                = content_tag(:p, value, class: "container__right__chapter__inner-box__" + key)
           %section
             .container__right__chapter__inner-box__cards
               %h3.container__right__chapter__inner-box__cards__text クレジットカード一覧
