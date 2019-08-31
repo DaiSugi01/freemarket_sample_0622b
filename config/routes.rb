@@ -19,7 +19,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:index, :new, :create, :destroy]
   resources :products, only:[:new,:create, :show, :destroy]
   resources :cards, only: [:index]
   resources :tbl_profile, only: [:edit, :update]

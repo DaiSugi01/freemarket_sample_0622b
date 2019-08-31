@@ -66,6 +66,8 @@ class ProductsController < ApplicationController
 
   def confirm
     @product = TblProduct.find(params[:id])
+    @image = @product.tbl_product_images
+    @address = current_tbl_user.tbl_addresses[0]
   end
 
   private
