@@ -4,6 +4,10 @@
   -# へッター
   = render 'shared/header'
 
+  .gretel
+    - breadcrumb :mypage
+    = breadcrumbs
+
   %main.container
     = render 'shared/mypage-left-contents'
     .container__right
