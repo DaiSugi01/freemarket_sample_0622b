@@ -1,0 +1,40 @@
+.container__right {
+  &__title {
+    border-bottom: 2px solid #F5F5F5;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 24px;
+    text-align: center;
+  }
+  &__profile {
+    &__icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+    &__input {
+      margin-top: 60px;
+      line-height: 50px;
+    }
+  }
+  &__description {
+    width: 94%;
+    height: 200px;
+    margin: 30px 20px;
+  }
+  &__submit {
+    width: 94%;
+    margin: 0 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: red;
+    border: none;
+    color: white;
+  }
+
+  .not_display {
+    display: none;
+  }
+}
+

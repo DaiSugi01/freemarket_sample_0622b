@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :redirect_to_top,except: [:index,:show]
 
+
   def index
     # レディース
     @ladies_products = TblProduct.get_items(1)
@@ -17,8 +18,7 @@ class ProductsController < ApplicationController
     # シュプリーム
     @supreme_products = TblProduct.get_blands(3)
     # ナイキ
-    @nike_products = TblProduct.get_blands(4)    
-  end
+    @nike_products = TblProduct.get_blands(4)
 
   def new
     @product = TblProduct.new
@@ -39,6 +39,21 @@ class ProductsController < ApplicationController
     end
   end
 
+  def pay
+    begin
+      token_id = TblCard.select("token").find_by(tbl_user_id: current_tbl_user.id)
+      product = TblProduct.find_by(id: params[:format])
+      TblCard.pay(product.price, token_id.token)
+      product.update(mst_status_id: 3)
+      buyer = TblBuyer.create({tbl_user_id: current_tbl_user.id,
+                              tbl_product_id: product.id,
+                              mst_correspondence_id: 1})
+      redirect_to done_products_path(product.id)
+    rescue => e
+      redirect_to root_path
+    end
+  end
+  
   def show
     @product = TblProduct.find(params[:id])
     @image = @product.tbl_product_images
@@ -60,6 +75,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def done
+    @product = TblProduct.find_by(id: params[:format])
+    @image = @product.tbl_product_images.where(tbl_product_id: params[:format]).first
+  end
+
+  def confirm
+    @product = TblProduct.find(params[:id])
+  end
   
   private
   def redirect_to_top
@@ -81,10 +104,15 @@ class ProductsController < ApplicationController
                                         :mst_delivery_method,
                                         :mst_prefecture_id,
                                         :mst_delivery_time_id,
-                                        :mst_status,
                                         :tbl_user_id,
                                         tbl_product_images_attributes: [:image]
-                                        )
+                                        ).merge(mst_status_id: 1)
+  end
+
+  def redirect_to_registration
+    unless tbl_user_signed_in?
+      redirect_to new_tbl_user_registration_path
+    end
   end
 
   def update_product_params

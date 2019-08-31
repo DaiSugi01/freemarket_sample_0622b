@@ -3,6 +3,7 @@ ja:
     models:
       tbl_user: 会員情報
       tbl_address: 住所
+      tbl_profile: プロフィール
     attributes:
       tbl_user:
         last_name: 姓
@@ -21,4 +22,8 @@ ja:
         mst_prefecture_id: 都道府県
         address: 住所
         phone: 電話番号
+      tbl_profile:
+        nickname: ニックネーム
+        icon: プロフィール画像
+        description: 挨拶文
       
