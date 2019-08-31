@@ -18,10 +18,7 @@ class TblAddressController < ApplicationController
 
   def edit
     @prefs = MstPrefecture.all()
-    @address = TblAddress.find_by(id: params[:id])
-    if @address.nil?
-      redirect_to action: 'new', tbl_user_id: current_tbl_user.id
-    end
+    @address = TblAddress.find(params[:id])
   end
 
   def update
