@@ -3,6 +3,7 @@
 @import "mixin/clearfix";
 @import "mixin/global";
 @import "mixin/link-buttons";
+@import "mixin/form";
 @import "modules/wrapper";
 @import "modules/header";
 @import "modules/top-slider";
@@ -13,19 +14,17 @@
 @import "modules/mypage_common";
 @import "modules/sell_product";
 @import "modules/cards";
+@import "modules/cards-new";
 @import "modules/signout";
 @import "modules/mypage-left";
-@import "vender/jquery.bxslider";
-
-@import "mixin/form";
 @import "modules/sign_up";
 @import "modules/sign_up_header";
 @import "modules/sign_up_footer";
 @import "modules/sign_in";
 @import "modules/sign_in_header";
-
 @import "modules/new";
+@import "modules/done";
+@import "vender/jquery.bxslider";
 @import "modules/show";
-
 @import "modules/mypage_index";
 @import "modules/edit_tbl_profile";

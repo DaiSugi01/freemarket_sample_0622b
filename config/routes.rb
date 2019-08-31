@@ -8,6 +8,18 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
+  resources :products, only:[:new, :create, :show, :destroy] do
+    collection do
+      get 'done'
+      get 'pay'
+    end
+
+    member do
+      get 'confirm'
+    end
+  end
+
+  resources :cards, only: [:index, :new, :create, :destroy]
   resources :products, only:[:new,:create, :show, :destroy]
   resources :cards, only: [:index]
   resources :tbl_profile, only: [:edit, :update]

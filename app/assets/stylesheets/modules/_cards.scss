@@ -14,10 +14,21 @@
     padding: 64px;
     text-align: center;
 
+    &__alert {
+      color: #ea352d;
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     &__cards {
+      width: 320px;
+      margin: 0 auto;
+      text-align: left;
+
       &__text {
         font-size: 16px;
-        font-weight: bold;  
+        font-weight: bold;
       }
     }
 
@@ -36,6 +47,50 @@
           color: #fff;
           font-size: 14px;
           line-height: 60px;
+        }
+      }
+    }
+
+    .card_lists {
+      .card {
+        text-align: left;
+        padding: 24px 0;
+        border-bottom: 1px solid #eee;
+
+        .card_box {
+          max-width: 320px;
+          margin: 0 auto;
+          position: relative;
+        }
+
+        figure {
+          margin: 0;
+          padding: 0;
+
+          .card-brand {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .payment-num {
+          margin: 8px 0 0;
+          font-size: 14px;
+          color: #333333;
+        }
+
+        .delete-btn {
+          line-height: 14px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 4px 6px;
+          background: #fff;
+          border-radius: 3px;
+          border: 1px solid #ea352d;
+          color: #ea352d;
+          font-size: 14px;
+          height: 14px;
         }
       }
     }
