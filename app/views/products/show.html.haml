@@ -1,59 +1,13 @@
 .exhibit-container
 
-  -# 詳細画面ヘッダー
+  -# ヘッダー
   .exhibit-container__header-navi
     = render 'shared/header'
 
+  -# 商品詳細部分
   %main.exhibit-container__product-datail
-    %h1.exhibit-container__product-datail__product-name
-      = @product.name
 
-    -# 商品詳細メイン部分  
-    .exhibit-container__product-datail__main
-      .exhibit-container__product-datail__main__left
-        .exhibit-container__product-datail__main__left__main-image
-          = image_tag @image[0].image.url, class: 'main-image-size'
-        .exhibit-container__product-datail__main__left__sub-images
-          - 10.times do |i|
-            = image_tag @image[i].image.url, alt:'商品画像'+i.to_s,class: 'sub-image-size' if @image[i].present?
-
-
-
-      %table.exhibit-container__product-datail__main__right
-        %tbody
-          %tr
-            %th.datail-header 出品者
-            %td.datail-data.link-text
-              = link_to @product.tbl_user.tbl_profile.nickname
-          %tr
-            %th.datail-header カテゴリー
-            %td.datail-data.link-text
-              = link_to @product.mst_major_category.name
-          %tr 
-            %th.datail-header ブランド          
-            %td.datail-data.link-text
-              -# = link_to @product.mst_brand.name
-          %tr 
-            %th.datail-header 商品の状態      
-            %td.datail-data
-              = @product.mst_condition.name
-          %tr 
-            %th.datail-header 発送料の負担     
-            %td.datail-data 
-              = @product.mst_burden.name
-          %tr 
-            %th.datail-header 配送の方法    
-            %td.datail-data 
-              -# = @product.mst_delivery_method.name
-          %tr 
-            %th.datail-header 発送元地域    
-            %td.datail-data.link-text
-              = link_to @product.mst_prefecture.name
-
-          %tr 
-            %th.datail-header 発送日の目安   
-            %td.datail-data
-              = @product.mst_delivery_time.name
+    = render 'show-body',{product:@product,image:@image}
 
     -# 価格/購入ボタン
     .exhibit-container__product-datail__price
@@ -64,13 +18,13 @@
       %span.exhibit-container__product-datail__price__fee
         送料込み
     .exhibit-container__product-datail__buy-btn
-      = link_to "購入画面に進む",root_path, class:'buy-btn__text'
+      = link_to "購入画面に進む",confirm_product_path, class:'buy-btn__text'
 
     -# 商品説明
     .exhibit-container__product-datail__description
       %p.exhibit-container__product-datail__description__text
         = @product.description
-    
+
     -# いいねボタン/報告ボタン
     .exhibit-container__product-datail__product-btn
       .exhibit-container__product-datail__product-btn__left
@@ -95,6 +49,7 @@
           = f.text_area :comment, class:'comment-box'
           = f.submit 'コメントする', class: 'comment-btn'
 
+
   -# メディアリンク
   .exhibit-container__product-datail__social-media
     %ul.exhibit-container__product-datail__social-media__list
@@ -107,9 +62,14 @@
       %li.pinterest-link
         = link_to 'https://www.pinterest.jp/', class:'icon-link' do
           %i.fa.fa-pinterest.pinterest-icon
-  
+
   .exhibit-container__product-datail__relation-products
 
-  -# フッター部分
+  -# バナー
   = render 'shared/app-banner'
+
+  -# フッター
   = render 'shared/footer'
+
+
+

@@ -8,9 +8,23 @@ Rails.application.routes.draw do
   end
   root 'products#index'
 
+
+  resources :products, except:[:index] do
+    collection do
+      get 'done'
+      get 'pay'
+    end
+
+    member do
+      get 'confirm'
+    end
+  end
+
+
   resources :products, only:[:new,:create, :show, :destroy]
   resources :cards, only: [:index]
   resources :tbl_profile, only: [:edit, :update]
+  resources :tbl_address, only: [:edit, :update]
 
   resources :mypage do
     collection do

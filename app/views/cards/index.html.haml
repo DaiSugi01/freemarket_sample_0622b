@@ -14,16 +14,31 @@
         %h2.container__right__chapter__pay-method 支払い方法
         .container__right__chapter__inner-box
           %section
+            - flash.each do |key, value|
+              = content_tag(:p, value, class: "container__right__chapter__inner-box__" + key)
+          %section
             .container__right__chapter__inner-box__cards
               %h3.container__right__chapter__inner-box__cards__text クレジットカード一覧
               %ul.container__right__chapter__inner-box__cards__lists
                 %li.container__right__chapter__inner-box__cards__list
           %section
-            .container__right__chapter__inner-box__add-cards
-              .container__right__chapter__inner-box__add-cards__box
-                = link_to root_path, target: "" do
-                  %i.fa.fa-credit-card
-                  %span クレジットカードを追加する
+            - if @cards.empty?
+              .container__right__chapter__inner-box__add-cards
+                .container__right__chapter__inner-box__add-cards__box
+                  = link_to new_card_path, target: "" do
+                    %i.fa.fa-credit-card
+                    %span クレジットカードを追加する
+            %ul.card_lists
+              - @cards.each do |card|
+                %li.card
+                  .card_box
+                    %figure
+                      = image_tag card.brand, alt: 'card-brand', width: '49', height: '15', class: 'card-brand'
+                    .payment-num
+                      = "************" + card.last_four_number
+                    .payment-num
+                      = card.expire_month + " / " + card.expire_year
+                    = link_to "削除する", card_path(card), method: :delete, class: 'delete-btn'
           .container__right__chapter__inner-box__about-payment
             = link_to root_path, target: "" do
               %span 支払い方法について
