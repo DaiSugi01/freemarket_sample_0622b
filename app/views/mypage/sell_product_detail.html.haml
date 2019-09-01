@@ -7,8 +7,6 @@
 
   -# 出品中の商品詳細(_show.scss)
   %main.exhibit-container__product-datail
-    %h1.exhibit-container__product-datail__product-name
-      = @product.name
 
     -# 商品詳細メイン部分  
     = render 'products/show-body',{product:@product,image:@image}
