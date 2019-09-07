@@ -55,6 +55,7 @@
                 .required
                   必須
               = f.collection_select :mst_major_category_id, MstMajorCategory.all,:id,:name,{prompt: "---"},{class: 'select-box'}
+              = f.collection_select :mst_brand_id, MstBrand.all,:id,:name,{prompt: "---"},{class: 'select-box'}
             .exhibit-container__main__sell__content-2__right-group2
               .exhibit-container__main__sell__content-2__right-group2__data-title
                 商品の状態

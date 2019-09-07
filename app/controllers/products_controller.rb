@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   def create
     @product = TblProduct.create(product_params)
     @product.tbl_user_id = current_tbl_user.id
+    # binding.pry
 
     if @product.save
       params[:tbl_product_images]['image'].first(10).each do |a|
@@ -103,7 +104,7 @@ class ProductsController < ApplicationController
                                         :description,
                                         :price,
                                         :mst_major_category_id,
-                                        :mst_brand,
+                                        :mst_brand_id,
                                         :mst_size,
                                         :mst_condition_id,
                                         :mst_burden_id,
