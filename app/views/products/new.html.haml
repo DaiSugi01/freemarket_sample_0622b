@@ -125,8 +125,7 @@
 
           
           = f.submit "出品する", class: 'send-btn',url:products_path
-          %a.return-btn
-            もどる
+          =link_to '戻る',root_path,class:'return-btn'
 
 
     %footer.exhibit-container__footer
