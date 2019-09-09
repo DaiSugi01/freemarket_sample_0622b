@@ -26,6 +26,10 @@ $(function(){
  
       fr.onload = function(e) {
         var src = e.target.result;
+        var img = '<img src="'+ src +'">';
+        $('#preview-file').append(img);
+        $('img').addClass('preview-file-size');
+      }
  
       fr.readAsDataURL(file);
 
