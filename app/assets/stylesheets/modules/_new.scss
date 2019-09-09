@@ -38,6 +38,8 @@
       width: 620px;
       padding: 40px;
       text-align: left;
+      display:block;
+      max-height:auto;
 
       &__data-title{
         @include data-title;
@@ -52,28 +54,56 @@
 
       &__upload-area{
         position: relative;
-        background-color: #F5F5F5;
         text-align: center;
-        min-height: 162px;
-        border: dotted 2px #CCCCCC;
-        display: block;
-        padding: 60px;
+        min-height:162px;
+        max-height: auto;
         font-size: 14px;
-        box-sizing: border-box;
+        display: float;
+      
+        &__text{
+          background-color: #F5F5F5;
+          border: dotted 2px #CCCCCC;
+          display: block;
+          padding: 60px;
+        }
+
+      &__upload-area:before {
+        content: "";
+        display: block;
+        padding-top: 100%; /* 1:1 */
+      }
 
         .file{
         position:absolute;
         top:0;
         left:0;
-        width:100%;
-        height:100%;    
-        cursor:pointer;
+        min-height:162px;
+        display: block;
+        width: 100%;
+        cursor: pointer;
+
+          #preview-file{
+           
+            .preview-file-size{
+              object-fit: contain;
+              display: inline-block;
+              float:left;
+              width:116px;
+              height:158px;
+              margin: 0px 0px 10px 5px;
+              background-color:#F5F5F5;
+              border: 1px solid #eee;
+            
+            }
+          }
         }
+
 
       }
     }
 
     &__content-1{
+
       background-color: white;
       border: solid #F5F5F5 0.1px;
       width: 620px;

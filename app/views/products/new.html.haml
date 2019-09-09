@@ -22,15 +22,17 @@
             %span.required
               必須
           .exhibit-container__main__sell__upload-box__explanation
-            最大10枚までアップロードできます
+            最大5枚までアップロードできます
 
           .exhibit-container__main__sell__upload-box__upload-area
-            ドラッグアンドドロップ<br>
-            またはクリックしてファイルをアップロード
+            .exhibit-container__main__sell__upload-box__upload-area__text
+              ドラッグアンドドロップ<br>
+              またはクリックしてファイルをアップロード
             %label.file
               = f.fields_for :tbl_product_images do |f|
-                = f.file_field :image, multiple: true, class:"file",id: "file", name: "tbl_product_images[image][]",style: "display:none;"
-
+                = f.file_field :image, multiple: true, class:"file",id: "product-file", name: "tbl_product_images[image][]",style: "display:none;"
+                #preview-file
+  
 
         -# 商品名/商品の説明
         .exhibit-container__main__sell__content-1

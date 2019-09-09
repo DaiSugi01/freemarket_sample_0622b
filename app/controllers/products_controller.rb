@@ -15,11 +15,11 @@ class ProductsController < ApplicationController
     # シャネル
     @chanel_products = TblProduct.get_blands(1)
     # ルイ ヴィトン
-    @vuitton_products = TblProduct.get_blands(2)
+    @vuitton_products = TblProduct.get_blands(3)
     # シュプリーム
-    @supreme_products = TblProduct.get_blands(3)
+    @supreme_products = TblProduct.get_blands(4)
     # ナイキ
-    @nike_products = TblProduct.get_blands(4)
+    @nike_products = TblProduct.get_blands(2)
   end
 
   def new
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
     @product.tbl_user_id = current_tbl_user.id
     
     if @product.save
-      params[:tbl_product_images]['image'].first(10).each do |a|
+      params[:tbl_product_images]['image'].first(5).each do |a|
         @image = @product.tbl_product_images.create!(image: a)
       end
       redirect_to :root
