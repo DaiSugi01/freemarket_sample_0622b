@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :redirect_to_top, except: [:index,:show]
-  before_action :set_product, only: [:show,:edit,:update, :confirm]
-
+  before_action :set_product,     only: [:show,:edit,:update, :confirm]
+  before_action :set_image,       only: [:show,:update,:confirm]
 
   def index
     # レディース
@@ -57,16 +57,16 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @image = @product.tbl_product_images
   end
 
   def edit
-    @image = @product.tbl_product_images
   end
 
   def update
-    @image = @product.tbl_product_images
     if @product.update(update_product_params)
+            params[:tbl_product_images]['image'].first(5).each do |a|
+        @image = @product.tbl_product_images.create!(image: a)
+      end
       redirect_to sell_product_detail_mypage_path
     else
       render action: 'edit'
@@ -79,7 +79,6 @@ class ProductsController < ApplicationController
   end
 
   def confirm
-    @image = @product.tbl_product_images
     @address = current_tbl_user.tbl_addresses[0]
   end
   
@@ -89,6 +88,10 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = TblProduct.find(params[:id])
+  end
+
+  def set_image
+    @image = @product.tbl_product_images
   end
 
   def redirect_to_top
