@@ -22,7 +22,8 @@
       %tr 
         %th.datail-header ブランド          
         %td.datail-data.link-text
-          -# = link_to @product.mst_brand.name
+          -if @product.mst_brand.present?
+            = link_to @product.mst_brand.name
       %tr 
         %th.datail-header 商品の状態      
         %td.datail-data

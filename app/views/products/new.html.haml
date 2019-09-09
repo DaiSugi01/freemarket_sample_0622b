@@ -22,15 +22,17 @@
             %span.required
               必須
           .exhibit-container__main__sell__upload-box__explanation
-            最大10枚までアップロードできます
+            最大5枚までアップロードできます
 
           .exhibit-container__main__sell__upload-box__upload-area
-            ドラッグアンドドロップ<br>
-            またはクリックしてファイルをアップロード
+            .exhibit-container__main__sell__upload-box__upload-area__text
+              ドラッグアンドドロップ<br>
+              またはクリックしてファイルをアップロード
             %label.file
               = f.fields_for :tbl_product_images do |f|
-                = f.file_field :image, multiple: true, class:"file",id: "file", name: "tbl_product_images[image][]",style: "display:none;"
-
+                = f.file_field :image, multiple: true, class:"file",id: "product-file", name: "tbl_product_images[image][]",style: "display:none;"
+                #preview-file
+  
 
         -# 商品名/商品の説明
         .exhibit-container__main__sell__content-1
@@ -55,6 +57,7 @@
                 .required
                   必須
               = f.collection_select :mst_major_category_id, MstMajorCategory.all,:id,:name,{prompt: "---"},{class: 'select-box'}
+              = f.collection_select :mst_brand_id, MstBrand.all,:id,:name,{prompt: "---"},{class: 'select-box'}
             .exhibit-container__main__sell__content-2__right-group2
               .exhibit-container__main__sell__content-2__right-group2__data-title
                 商品の状態
@@ -125,8 +128,7 @@
 
           
           = f.submit "出品する", class: 'send-btn',url:products_path
-          %a.return-btn
-            もどる
+          =link_to '戻る',root_path,class:'return-btn'
 
 
     %footer.exhibit-container__footer

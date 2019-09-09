@@ -4,5 +4,4 @@ INSERT INTO `mst_brands` (`id`, `name`, `created_at`, `updated_at`)VALUES
 	(2, 'ナイキ', NOW(), NOW()),
 	(3, 'ルイ ヴィトン', NOW(), NOW()),
 	(4, 'シュプリーム', NOW(), NOW()),
-	(5, 'シャネル', NOW(), NOW()),
-	(6, 'アディダス', NOW(), NOW());
+	(5, 'アディダス', NOW(), NOW());

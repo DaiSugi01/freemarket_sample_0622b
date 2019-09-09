@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :redirect_to_top, except: [:index,:show]
-  before_action :set_product, only: [:show,:edit,:update, :confirm]
-
+  before_action :set_product,     only: [:show,:edit,:update, :confirm]
+  before_action :set_image,       only: [:show,:edit,:update,:confirm]
 
   def index
     # レディース
@@ -15,11 +15,11 @@ class ProductsController < ApplicationController
     # シャネル
     @chanel_products = TblProduct.get_blands(1)
     # ルイ ヴィトン
-    @vuitton_products = TblProduct.get_blands(2)
+    @vuitton_products = TblProduct.get_blands(3)
     # シュプリーム
-    @supreme_products = TblProduct.get_blands(3)
+    @supreme_products = TblProduct.get_blands(4)
     # ナイキ
-    @nike_products = TblProduct.get_blands(4)
+    @nike_products = TblProduct.get_blands(2)
   end
 
   def new
@@ -30,10 +30,10 @@ class ProductsController < ApplicationController
   def create
     @product = TblProduct.create(product_params)
     @product.tbl_user_id = current_tbl_user.id
-
+    
     if @product.save
-      params[:tbl_product_images]['image'].first(10).each do |a|
-        @image = @product.tbl_product_images.create!(image: a)
+      params[:tbl_product_images]['image'].first(5).each do |a|
+      @image = @product.tbl_product_images.create!(image: a)
       end
       redirect_to :root
     else
@@ -57,15 +57,12 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @image = @product.tbl_product_images
   end
 
   def edit
-    @image = @product.tbl_product_images
   end
 
   def update
-    @image = @product.tbl_product_images
     if @product.update(update_product_params)
       redirect_to sell_product_detail_mypage_path
     else
@@ -79,7 +76,6 @@ class ProductsController < ApplicationController
   end
 
   def confirm
-    @image = @product.tbl_product_images
     @address = current_tbl_user.tbl_addresses[0]
   end
   
@@ -89,6 +85,10 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = TblProduct.find(params[:id])
+  end
+
+  def set_image
+    @image = @product.tbl_product_images
   end
 
   def redirect_to_top
@@ -103,7 +103,7 @@ class ProductsController < ApplicationController
                                         :description,
                                         :price,
                                         :mst_major_category_id,
-                                        :mst_brand,
+                                        :mst_brand_id,
                                         :mst_size,
                                         :mst_condition_id,
                                         :mst_burden_id,
