@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
   $('#tbl_product_mst_major_category_id').change(function() {
    var input_val = $('#tbl_product_mst_major_category_id').val();
   if(input_val == 1||input_val == 2) {
@@ -8,7 +8,7 @@ $(function(){
   });
 });
 
-$(function(){
+$(document).on('turbolinks:load',function(){
   $('#product-file').change(function(){
     if ( !this.files.length ) {
       return;
